@@ -121,7 +121,6 @@ public class OperatingProgramTest {
 			System.out.println("Found Operating Program footer" + " " + r + operatingProgramFooter);			
 			System.out.println("Test: Success" + '\n' 
 								+ separator);
-			return result;
 		} 
 		else{
 			System.out.println("Operating Program footer" + " " + operatingProgramFooter + " " + "has not been found." + " " + r + " " + "returned.");
@@ -162,37 +161,37 @@ public class OperatingProgramTest {
 		}
 		
 		ScreenRegion r1 = region.find(targetList.get(0));
-		//ScreenRegion r2 = region.find(targetList.get(1));
-		//ScreenRegion r3 = region.find(targetList.get(2));
+		ScreenRegion r2 = region.find(targetList.get(1));
+		ScreenRegion r3 = region.find(targetList.get(2));
 		System.out.println(r1);
-		//System.out.println(r2);
-		//System.out.println(r3);
+		System.out.println(r2);
+		System.out.println(r3);
 		System.out.println("-----------------------------------------------------------------");
 		
-		if(r1 == null){
+		if(r1 != null){
 			result = true;
-			basicFunction.click(r1, targetList.get(1),2);
-			System.out.println("Found Operating Program button" + " " + r1 + buttonList.get(1));			
+			basicFunction.click(r1, targetList.get(0),2);
+			System.out.println("Found Operating Program button" + " " + r1 + buttonList.get(0));			
 			System.out.println("Test: Success" + '\n' 
 								+ separator);
 		}
-		/*else if(r2 != null){
+		else if(r2 != null){
 			result = true;
 			basicFunction.click(r2, targetList.get(1),2);
 			System.out.println("Found Operating Program button" + " " + r2 + buttonList.get(1));			
 			System.out.println("Test: Success" + '\n' 
 								+ separator);
 		}
-		else if(r1 != null){
+		else if(r3 != null){
 			result = true;
-			basicFunction.click(r1, targetList.get(0),2);
-			System.out.println("Found Operating Program button" + " " + r1 + buttonList.get(2));			
+			basicFunction.click(r3, targetList.get(2),2);
+			System.out.println("Found Operating Program button" + " " + r3 + buttonList.get(2));			
 			System.out.println("Test: Success" + '\n' 
 								+ separator);
-		}*/
+		}
 		else{
-			System.out.println("Operating Program buttons" + " " + /*buttonList.get(0) + buttonList.get(1) +*/ buttonList.get(2) + " " + 
-								"have not been found." + " " + /*r1 + */r1  + " " + "returned.");
+			System.out.println("Operating Program buttons" + " " + buttonList.get(0) + buttonList.get(1) + buttonList.get(2) + " " + 
+								"have not been found." + " " + r1 + r2 + r3 + " " + "returned.");
 			System.out.println("Test: Fail" + '\n' 
 								+ separator);
 		}

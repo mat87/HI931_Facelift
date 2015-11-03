@@ -46,13 +46,27 @@ public class BasicFunctions{
 		return result;
 	}
 	
+	public void killApplication(String app) throws IOException {
+		try {
+			Runtime.getRuntime().exec("taskkill /F /IM " + app);	
+		} catch (IOException e) {
+			e.printStackTrace();	
+		}
+	}
+	
 	public boolean isObjectAvailable(){
 		boolean result = false;
-		
-		
-		
-		
-		
 		return result;
+	}
+	
+	/*
+	 * Generates list of true to compare after test execution. 
+	 */
+	public boolean[] generateTrueList(int length){
+		boolean[] trueList = new boolean[length];
+		for (int i=0; i<length;i++){
+		trueList[i]= true;
+		};
+		return trueList;
 	}
 }

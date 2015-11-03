@@ -11,6 +11,7 @@ public class ExecuteTests {
 
 		if(func.runApplication(path, app)){
 			executor.testToExecute();
+			func.killApplication(app);
 		}
 		else{
 			System.out.printf("Tests not executed");

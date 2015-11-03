@@ -1,4 +1,3 @@
-
 public class Logger {
 
 	public long testExecutedInMs(long start, long end){

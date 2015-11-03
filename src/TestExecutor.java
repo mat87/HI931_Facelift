@@ -1,9 +1,11 @@
+import java.util.Arrays;
 
 public class TestExecutor {
 	
 	public void testToExecute(){
 		
 		OperatingProgramTest opt = new OperatingProgramTest();
+		BasicFunctions func = new BasicFunctions();
 		
 		boolean[] results = new boolean[]{
 				opt.setOperatingProgram(),
@@ -11,8 +13,10 @@ public class TestExecutor {
 				opt.checkOperatingProgramHeader(),
 				opt.checkOperatingProgramFooter()
 		};
-			
-		if(results.equals(true)){
+		
+		boolean[] trueList = func.generateTrueList(results.length);
+		
+		if(Arrays.equals(results, trueList)){
 			System.out.printf("----------------------\n");
 			System.out.printf("TEST RESULT: SUCCESS\n");
 			System.out.printf("----------------------");
@@ -22,5 +26,6 @@ public class TestExecutor {
 			System.out.printf("TEST RESULT: FAIL\n");
 			System.out.printf("----------------------");
 		}
+				
 	}
 }
