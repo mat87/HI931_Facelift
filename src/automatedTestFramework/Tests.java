@@ -1,15 +1,18 @@
+package automatedTestFramework;
+
 import java.util.Arrays;
 
-public class TestExecutor {
+import testsHI931.OperatingProgramTest;
+
+public class Tests {
 	
-	public void testToExecute(){
+	public void executeTests(String projectName, String testsName){
 		
 		OperatingProgramTest opt = new OperatingProgramTest();
 		BasicFunctions func = new BasicFunctions();
-		
+	
 		boolean[] results = new boolean[]{
 				opt.setOperatingProgram(),
-				opt.checkOperatingProgramButton(),
 				opt.checkOperatingProgramHeader(),
 				opt.checkOperatingProgramFooter()
 		};
@@ -28,4 +31,5 @@ public class TestExecutor {
 		}
 				
 	}
+
 }
