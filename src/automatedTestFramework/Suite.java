@@ -7,6 +7,7 @@ public class Suite {
 	boolean[] results;
 	OperatingProgramTest opt = new OperatingProgramTest();
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
+	BoilerTemperatureTest btt = new BoilerTemperatureTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -23,8 +24,9 @@ public class Suite {
 		        case "SMOKE": results = new boolean[]{
 		        		opt.checkOperatingProgramHeader(),
 						opt.checkOperatingProgramFooter(),
-						ott.checkOutsideTemperature() 
-		        		};
+						ott.checkOutsideTemperature(),
+						btt.checkBoilerTemperature()
+		        };
 		                break;
 		        default: break;
 			}
