@@ -8,10 +8,6 @@ import automatedTestFramework.Logger;
 
 
 public class OperatingProgramTest {
-	
-
-	String separator = "----------------------------------------------------------------------------------------------------------------------------";
-	
 	BasicFunctions basicFunction = new BasicFunctions();
 	Logger log = new Logger();
 	
@@ -21,7 +17,7 @@ public class OperatingProgramTest {
 	public boolean checkOperatingProgramHeader(){
 		
 		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkOperatingProgramHeader() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(separator);
+		System.out.println(log.separator);
 		long startTest = System.currentTimeMillis();
 		boolean result = false;
 		
@@ -46,10 +42,10 @@ public class OperatingProgramTest {
 		if (basicFunction.checkIfExist("HC1OperatingProgramHeader.JPG")){
 			result = true;
 			System.out.println("Found Operating Program header");			
-			System.out.println("Test: Success" + '\n' + separator);
+			System.out.println("Test: Success" + '\n' + log.separator);
 		}else{
 			System.out.println("Operating Program header has not been found.");
-			System.out.println("Test: Fail" + '\n' + separator);
+			System.out.println("Test: Fail" + '\n' + log.separator);
 		}
 		long endTest = System.currentTimeMillis();
 		log.testExecutedInMs(startTest, endTest);
@@ -62,7 +58,7 @@ public class OperatingProgramTest {
 	public boolean checkOperatingProgramFooter(){
 		
 		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkOperatingProgramFooter() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(separator);
+		System.out.println(log.separator);
 		long startTest = System.currentTimeMillis();
 		boolean result = false;
 		
@@ -87,10 +83,10 @@ public class OperatingProgramTest {
 		if (basicFunction.checkIfExist("HC1OperatingProgramFooter.JPG")){
 			result = true;
 			System.out.println("Found Operating Program footer");			
-			System.out.println("Test: Success" + '\n' + separator);
+			System.out.println("Test: Success" + '\n' + log.separator);
 		}else{
 			System.out.println("Operating Program footer has not been found.");
-			System.out.println("Test: Fail" + '\n' + separator);
+			System.out.println("Test: Fail" + '\n' + log.separator);
 		}
 		long endTest = System.currentTimeMillis();
 		log.testExecutedInMs(startTest, endTest);
@@ -103,7 +99,7 @@ public class OperatingProgramTest {
 	public boolean setOperatingProgram(){
 		
 		System.out.println("++++++++++++++++++++++++++++++++++++++++ setOperatingProgram() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(separator);
+		System.out.println(log.separator);
 		boolean result = false;
 		long startTest = System.currentTimeMillis();
 		
@@ -142,7 +138,7 @@ public class OperatingProgramTest {
 						result = false;
 						System.out.println("Setting operating mode works NOT fine.");
 						System.out.println("Test: Fail" + '\n' 
-								+ separator);	
+								+ log.separator);	
 						break;
 					}
 				basicFunction.click(regionsInMainMenu.get(2), targetsInMainMenu.get(2),2);
@@ -150,13 +146,13 @@ public class OperatingProgramTest {
 			if (result == true){
 				System.out.println("Setting operating mode works fine.");
 				System.out.println("Test: Success" + '\n' 
-						+ separator);	
+						+ log.separator);	
 			}
 		}else{
 			System.out.println("Operating Program buttons" + " " + buttonsInMainMenu[0] + buttonsInMainMenu[1] + buttonsInMainMenu[2] + " " + 
 								"have not been found." + " " + regionsInMainMenu.get(0) + regionsInMainMenu.get(1) + regionsInMainMenu.get(2) + " " + "returned.");
 			System.out.println("Test: Fail" + '\n' 
-								+ separator);
+								+ log.separator);
 		}
 		
 		long endTest = System.currentTimeMillis();

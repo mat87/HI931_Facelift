@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 
 public class Logger {
-	
+	public String separator = "----------------------------------------------------------------------------------------------------------------------------";
 	BasicFunctions func = new BasicFunctions();
 	
 	public long testExecutedInMs(long start, long end){

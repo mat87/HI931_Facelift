@@ -6,6 +6,7 @@ import testsVITOTROL300.*;
 public class Suite {
 	boolean[] results;
 	OperatingProgramTest opt = new OperatingProgramTest();
+	OutsideTemperatureTest ott = new OutsideTemperatureTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -14,16 +15,17 @@ public class Suite {
 		if(projectName.equals("HI931")){	
 			switch (suiteName) {
 		        case "REGRESSION": results = new boolean[]{
-						 opt.setOperatingProgram(),
-						 opt.checkOperatingProgramHeader(),
-						 opt.checkOperatingProgramFooter()
-						 };
-		        		 break;
+						opt.setOperatingProgram(),
+						opt.checkOperatingProgramHeader(),
+						opt.checkOperatingProgramFooter()
+						};
+		        		break;
 		        case "SMOKE": results = new boolean[]{
-		        		 opt.checkOperatingProgramHeader(),
-						 opt.checkOperatingProgramFooter()
-		        	 	 };
-		                 break;
+		        		opt.checkOperatingProgramHeader(),
+						opt.checkOperatingProgramFooter(),
+						ott.checkOutsideTemperature() 
+		        		};
+		                break;
 		        default: break;
 			}
 		}else if(projectName.equals("VITOTROL300")){
