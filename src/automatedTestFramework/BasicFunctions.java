@@ -51,7 +51,7 @@ public class BasicFunctions{
 	}
 	
 	/**
-	 * Generate list of targets from lsit of targets.
+	 * Generate list of targets from list of targets.
 	 *  
 	 * @param buttons	List of patterns to generate list of targets
 	 * 

@@ -1,7 +1,5 @@
 package automatedTestFramework;
 
-import java.util.Arrays;
-
 import testsHI931.*;
 import testsVITOTROL300.*;
 
@@ -9,23 +7,22 @@ public class Suite {
 	boolean[] results;
 	OperatingProgramTest opt = new OperatingProgramTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
-	
-	BasicFunctions func = new BasicFunctions();
+	Logger log = new Logger();
 	
 	public void executeSuite(String projectName, String suiteName){
 		
 		if(projectName.equals("HI931")){	
 			switch (suiteName) {
 		        case "REGRESSION": results = new boolean[]{
-						opt.setOperatingProgram(),
-						opt.checkOperatingProgramHeader(),
-						opt.checkOperatingProgramFooter()
-						};
-		        		break;
+						 opt.setOperatingProgram(),
+						 opt.checkOperatingProgramHeader(),
+						 opt.checkOperatingProgramFooter()
+						 };
+		        		 break;
 		        case "SMOKE": results = new boolean[]{
-		        		opt.checkOperatingProgramHeader(),
-						opt.checkOperatingProgramFooter()
-		        		};
+		        		 opt.checkOperatingProgramHeader(),
+						 opt.checkOperatingProgramFooter()
+		        	 	 };
 		                 break;
 		        default: break;
 			}
@@ -44,17 +41,6 @@ public class Suite {
 		        default: break;
 			}
 		}
-			
-		boolean[] trueList = func.generateTrueList(results.length);
-		if(Arrays.equals(results, trueList)){
-			System.out.printf("----------------------\n");
-			System.out.printf("TEST RESULT: SUCCESS\n");
-			System.out.printf("----------------------");
-		}
-		else{
-			System.out.printf("----------------------\n");
-			System.out.printf("TEST RESULT: FAIL\n");
-			System.out.printf("----------------------");
-		}
+		log.sumUp(results);	
 	}
 }
