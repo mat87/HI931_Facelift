@@ -101,6 +101,26 @@ public class BasicFunctions{
 			return false;
 	}
 	
+	/**
+	 * If pattern exists click on it.
+	 *  
+	 * @param pattern	pattern which will be checked if exists
+	 * 
+	 * @return true if pattern exist and was clicked
+	 */
+	public boolean clickIfExist(String pattern){
+		String patterns[] = {pattern};
+		ArrayList<Target> targets = mapTargets(patterns); 
+		ArrayList<ScreenRegion> regions = mapRegions(targets);
+		if(targets.get(0)!= null && regions.get(0)!= null){
+			click(regions.get(0),targets.get(0),0);
+			return true;
+		}else{
+			System.out.println(pattern + " " + "not found.");
+			return false;
+		}
+	}
+	
 	
 	/**
 	 * Go to main menu.

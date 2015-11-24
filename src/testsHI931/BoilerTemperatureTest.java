@@ -27,6 +27,4 @@ public class BoilerTemperatureTest {
 		log.testExecutedInMs(startTest, endTest);
 		return result;
 	}
-	
-	
 }
