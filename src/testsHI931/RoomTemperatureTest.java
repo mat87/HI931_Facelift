@@ -31,7 +31,7 @@ public class RoomTemperatureTest {
 				basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
 				basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
 				basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),1);
-				if(basicFunction.checkIfExist("RoomTemperatureMainMenu36.JPG")||basicFunction.checkIfExist("RoomTemperatureMainMenu34.JPG"))
+				if(basicFunction.checkIfExist("RoomTemperatureMainMenu34.JPG")||basicFunction.checkIfExist("RoomTemperatureMainMenu34.JPG"))
 					result = true;
 				else{
 					result = false;
@@ -51,7 +51,6 @@ public class RoomTemperatureTest {
 					System.out.println("Test: Fail" + '\n' + log.separator);
 				}
 			}
-			
 		}else{
 			System.out.println("Impossible to get into room temperature menu.");
 			System.out.println("Test: Fail" + '\n' + log.separator);

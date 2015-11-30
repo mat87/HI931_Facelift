@@ -19,8 +19,8 @@ public class runProjectTests {
 			path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
 			app = "simulator.exe";
 		}else if(projectName.equals("VITOTROL300")){
-			path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
-			app = "simulator.exe";
+			path = "C:\\Workspace\\vitotrol300\\";
+			app = "SimulationShip.exe";
 		}
 		
 		if(func.runApplication(path, app)){
