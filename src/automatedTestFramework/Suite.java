@@ -34,8 +34,8 @@ public class Suite {
 						rtt.checkRoomTemperatureHeader(),
 						rtt.SetRoomTemperatureTest(),
 						dhwt.checkDhwMenu(),
-						sbt.check2minutesStandby(),
-						cst.checkClearScreen()
+						cst.checkClearScreen(),
+						sbt.check2minutesStandby()
 						};
 		                break;
 		        default: break;
