@@ -134,6 +134,16 @@ public class BasicFunctions{
 	}
 	
 	/**
+	 * Go to DHW menu.
+	 */
+	public void goToDhwMenu() {
+		clickIfExist("Menu.JPG");
+		clickIfExist("DhwMenu.JPG");
+	}
+	
+	
+	
+	/**
 	 * Run target application (process).
 	 *  
 	 * @param path	path to target application

@@ -9,6 +9,7 @@ public class Suite {
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
 	BoilerTemperatureTest btt = new BoilerTemperatureTest();
 	RoomTemperatureTest rtt = new RoomTemperatureTest();
+	DhwTest dhwt = new DhwTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -29,7 +30,8 @@ public class Suite {
 						ott.checkOutsideTemperature(),
 						btt.checkBoilerTemperature(),
 						rtt.checkRoomTemperatureHeader(),
-						rtt.SetRoomTemperatureTest()
+						rtt.SetRoomTemperatureTest(),
+						dhwt.checkDhwMenu()
 		        		};
 		                break;
 		        default: break;
