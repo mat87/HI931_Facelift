@@ -145,6 +145,7 @@ public class BasicFunctions{
 	 * Go to Settings menu.
 	 */
 	public void goToSettingsMenu() {
+		goToMainMenu();
 		clickIfExist("Menu.JPG");
 		clickIfExist("SettingsButton.JPG");
 	}
