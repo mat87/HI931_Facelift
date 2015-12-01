@@ -26,15 +26,15 @@ public class Suite {
 						};
 		        		break;
 		        case "SMOKE": results = new boolean[]{
-//		        		opt.setOperatingProgram(),
-//		        		opt.checkOperatingProgramHeader(),
-//						opt.checkOperatingProgramFooter(),
-//						ott.checkOutsideTemperature(),
-//						btt.checkBoilerTemperature(),
-//						rtt.checkRoomTemperatureHeader(),
-//						rtt.SetRoomTemperatureTest(),
-//						dhwt.checkDhwMenu(),
-//						sbt.check2minutesStandby(),
+		        		opt.setOperatingProgram(),
+		        		opt.checkOperatingProgramHeader(),
+						opt.checkOperatingProgramFooter(),
+						ott.checkOutsideTemperature(),
+						btt.checkBoilerTemperature(),
+						rtt.checkRoomTemperatureHeader(),
+						rtt.SetRoomTemperatureTest(),
+						dhwt.checkDhwMenu(),
+						sbt.check2minutesStandby(),
 						cst.checkClearScreen()
 						};
 		                break;
