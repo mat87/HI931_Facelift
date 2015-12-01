@@ -11,6 +11,7 @@ public class Suite {
 	RoomTemperatureTest rtt = new RoomTemperatureTest();
 	DhwTest dhwt = new DhwTest();
 	StandbyTest sbt = new StandbyTest();
+	CleanScreenTest cst = new CleanScreenTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -25,16 +26,17 @@ public class Suite {
 						};
 		        		break;
 		        case "SMOKE": results = new boolean[]{
-		        		opt.setOperatingProgram(),
-		        		opt.checkOperatingProgramHeader(),
-						opt.checkOperatingProgramFooter(),
-						ott.checkOutsideTemperature(),
-						btt.checkBoilerTemperature(),
-						rtt.checkRoomTemperatureHeader(),
-						rtt.SetRoomTemperatureTest(),
-						dhwt.checkDhwMenu(),
-						sbt.check2minutesStandby()
-		        		};
+//		        		opt.setOperatingProgram(),
+//		        		opt.checkOperatingProgramHeader(),
+//						opt.checkOperatingProgramFooter(),
+//						ott.checkOutsideTemperature(),
+//						btt.checkBoilerTemperature(),
+//						rtt.checkRoomTemperatureHeader(),
+//						rtt.SetRoomTemperatureTest(),
+//						dhwt.checkDhwMenu(),
+//						sbt.check2minutesStandby(),
+						cst.checkClearScreen()
+						};
 		                break;
 		        default: break;
 			}

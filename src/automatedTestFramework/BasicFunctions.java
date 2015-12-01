@@ -141,6 +141,13 @@ public class BasicFunctions{
 		clickIfExist("DhwMenu.JPG");
 	}
 	
+	/**
+	 * Go to Settings menu.
+	 */
+	public void goToSettingsMenu() {
+		clickIfExist("Menu.JPG");
+		clickIfExist("SettingsButton.JPG");
+	}
 	
 	
 	/**
