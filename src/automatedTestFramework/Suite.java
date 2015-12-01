@@ -10,6 +10,7 @@ public class Suite {
 	BoilerTemperatureTest btt = new BoilerTemperatureTest();
 	RoomTemperatureTest rtt = new RoomTemperatureTest();
 	DhwTest dhwt = new DhwTest();
+	StandbyTest sbt = new StandbyTest();
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -31,7 +32,8 @@ public class Suite {
 						btt.checkBoilerTemperature(),
 						rtt.checkRoomTemperatureHeader(),
 						rtt.SetRoomTemperatureTest(),
-						dhwt.checkDhwMenu()
+						dhwt.checkDhwMenu(),
+						sbt.check2minutesStandby()
 		        		};
 		                break;
 		        default: break;
