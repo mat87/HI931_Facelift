@@ -12,6 +12,8 @@ public class Suite {
 	DhwTest dhwt = new DhwTest();
 	StandbyTest sbt = new StandbyTest();
 	CleanScreenTest cst = new CleanScreenTest();
+	SettingsTest stt = new SettingsTest();
+	
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
 	
@@ -35,6 +37,8 @@ public class Suite {
 						rtt.SetRoomTemperatureTest(),
 						dhwt.checkDhwMenu(),
 						cst.checkClearScreen(),
+						stt.checkSettingsHeader(),
+						stt.checkSettingsMenuItems(),
 						sbt.check2minutesStandby()
 						};
 		                break;

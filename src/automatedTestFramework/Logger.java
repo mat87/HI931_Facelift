@@ -2,7 +2,6 @@ package automatedTestFramework;
 
 import java.util.Arrays;
 
-
 public class Logger {
 	public String separator = "----------------------------------------------------------------------------------------------------------------------------";
 	BasicFunctions func = new BasicFunctions();
@@ -12,7 +11,6 @@ public class Logger {
 		System.out.println("Test performed in:" + " " + time + "[ms]");
 		return time;
 	}
-	
 	
 	/**
 	 * Sum up test results, general information all pass or fail.
@@ -26,8 +24,7 @@ public class Logger {
 			System.out.printf("TEST RESULT: SUCCESS\n");
 			System.out.printf("All " + results.length + " tests passed\n");
 			System.out.printf("----------------------");
-		}
-		else{
+		}else{
 			int fails = countFails(results);
 			System.out.printf("----------------------\n");
 			System.out.printf("TEST RESULT: FAIL\n");
@@ -45,6 +42,4 @@ public class Logger {
 		}
 		return numberOfFails;
 	}
-	
-		
 }
