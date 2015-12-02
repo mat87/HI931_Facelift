@@ -137,6 +137,7 @@ public class BasicFunctions{
 	 * Go to DHW menu.
 	 */
 	public void goToDhwMenu() {
+		goToMainMenu();
 		clickIfExist("Menu.JPG");
 		clickIfExist("DhwMenu.JPG");
 	}
