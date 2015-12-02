@@ -13,6 +13,7 @@ public class Suite {
 	StandbyTest sbt = new StandbyTest();
 	CleanScreenTest cst = new CleanScreenTest();
 	SettingsTest stt = new SettingsTest();
+	FavouritesTest ftt = new FavouritesTest();
 	
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
@@ -39,6 +40,8 @@ public class Suite {
 						cst.checkClearScreen(),
 						stt.checkSettingsHeader(),
 						stt.checkSettingsMenuItems(),
+						ftt.checkFavouritiesHeader(),
+						ftt.checkFavouritiesMenuItems(),
 						sbt.check2minutesStandby()
 						};
 		                break;

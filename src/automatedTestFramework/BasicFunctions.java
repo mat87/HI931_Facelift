@@ -151,6 +151,14 @@ public class BasicFunctions{
 		clickIfExist("SettingsButton.JPG");
 	}
 	
+	/**
+	 * Go to Favourites menu.
+	 */
+	public void goToFavouritesMenu() {
+		goToMainMenu();
+		clickIfExist("Left.JPG");
+	}
+	
 	
 	/**
 	 * Run target application (process).
