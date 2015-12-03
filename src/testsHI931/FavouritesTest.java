@@ -30,7 +30,7 @@ public class FavouritesTest {
 	}
 	
 	public boolean checkFavouritiesMenuItems(){
-		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkSettingsMenuItems() test ++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkFavouritiesMenuItems() test ++++++++++++++++++++++++++++++++++++++++");
 		System.out.println(log.separator);
 		long startTest = System.currentTimeMillis();
 		boolean result = false;

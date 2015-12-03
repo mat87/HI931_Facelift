@@ -2,9 +2,13 @@ package automatedTestFramework;
 
 import testsHI931.*;
 import testsVITOTROL300.*;
+import automatedTestFramework.BasicFunctions;
+import java.net.*;
 
 public class Suite {
 	boolean[] results;
+	Socket s = null;
+	BasicFunctions basicFunction = new BasicFunctions();
 	OperatingProgramTest opt = new OperatingProgramTest();
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
 	BoilerTemperatureTest btt = new BoilerTemperatureTest();
@@ -19,7 +23,7 @@ public class Suite {
 	Logger log = new Logger();
 	
 	public void executeSuite(String projectName, String suiteName){
-		
+		s = basicFunction.openHiSocket();
 		if(projectName.equals("HI931")){	
 			switch (suiteName) {
 		        case "REGRESSION": results = new boolean[]{
@@ -33,7 +37,8 @@ public class Suite {
 		        		opt.checkOperatingProgramHeader(),
 						opt.checkOperatingProgramFooter(),
 						ott.checkOutsideTemperature(),
-						btt.checkBoilerTemperature(),
+		        		btt.checkBoilerTemperature(),
+		        		btt.checkChangeBoilerTemperature(s),
 						rtt.checkRoomTemperatureHeader(),
 						rtt.SetRoomTemperatureTest(),
 						dhwt.checkDhwMenu(),
@@ -62,6 +67,7 @@ public class Suite {
 		        default: break;
 			}
 		}
+		basicFunction.closeHiSocket(s);
 		log.sumUp(results);	
 	}
 }

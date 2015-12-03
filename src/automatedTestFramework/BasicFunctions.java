@@ -1,7 +1,10 @@
 package automatedTestFramework;
 import java.io.File;
 import java.io.IOException;
+
+import java.io.DataOutputStream;
 import java.util.ArrayList;
+import java.net.*;
 
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ImageTarget;
@@ -15,6 +18,55 @@ public class BasicFunctions{
 	public static double DEFAULT_MINSCORE = 0.9;
 	public static double LOWER_MINSCORE = 0.85;
 	
+	/**
+	 * Opne socket to HI931.
+	 *  
+	 *  return socket to HI931
+	 */
+	public Socket openHiSocket(){
+		Socket s = null;//new Socket();
+		try{
+			s = new Socket("localhost", 8899);
+		}catch(IOException e){
+		}
+		return s;
+	}
+	
+	/**
+	 * Close opened socket to HI931.
+	 *  
+	 * @param s	open socket to HI931 simulator
+	 */
+	public void closeHiSocket(Socket s){
+		try{
+			s.close();
+		}catch(IOException e){
+			System.out.println(e);
+		}
+	}
+	
+	/**
+	 * Insert data point values to HI931.
+	 *  
+	 * @param s	open socket to HI931 simulator
+	 * @param code value which we want to send, taken from Const file
+	 */
+	public void insertValueToHI931(Socket s, String code){
+		DataOutputStream os = null;
+		try{
+			os = new DataOutputStream(s.getOutputStream());
+			os.writeBytes(code);
+			try{
+				Thread.sleep(2000);
+			}catch (Exception e)
+				{System.out.println("Something went wrong while waiting");
+			};
+		}catch(IOException e){
+			System.out.println(e);
+		}
+	}
+
+		
 	/**
 	 * Find target Pattern on the screen.
 	 *  

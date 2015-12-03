@@ -3,7 +3,6 @@ package testsHI931;
 import automatedTestFramework.BasicFunctions;
 import automatedTestFramework.Logger;
 
-
 public class OutsideTemperatureTest {
 	BasicFunctions basicFunction = new BasicFunctions();
 	Logger log = new Logger();
