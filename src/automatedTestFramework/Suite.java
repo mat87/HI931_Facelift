@@ -18,6 +18,7 @@ public class Suite {
 	CleanScreenTest cst = new CleanScreenTest();
 	SettingsTest stt = new SettingsTest();
 	FavouritesTest ftt = new FavouritesTest();
+	PopupTest ppt = new PopupTest();
 	
 	energyGasConsumptionTest energyGas = new energyGasConsumptionTest();
 	Logger log = new Logger();
@@ -47,6 +48,7 @@ public class Suite {
 						stt.checkSettingsMenuItems(),
 						ftt.checkFavouritiesHeader(),
 						ftt.checkFavouritiesMenuItems(),
+						ppt.checkPopup(s),
 						sbt.check2minutesStandby()
 						};
 		                break;
