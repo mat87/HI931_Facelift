@@ -1,11 +1,16 @@
 package automatedTestFramework;
 import java.io.File;
 import java.io.IOException;
-
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.net.*;
-
+import javax.imageio.ImageIO;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.AWTException;
+import java.awt.image.BufferedImage;
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ImageTarget;
 import org.sikuli.api.ScreenRegion;
@@ -18,10 +23,20 @@ public class BasicFunctions{
 	public static double DEFAULT_MINSCORE = 0.9;
 	public static double LOWER_MINSCORE = 0.85;
 	
-	/**
-	 * Opne socket to HI931.
+	Mouse mouse = new DesktopMouse();
+	Robot robot;
+	
+	public BasicFunctions(){
+		try{
+			robot = new Robot();
+		}catch(AWTException e){
+			e.printStackTrace();
+		}
+	}
+	/****************************************************************************************
+	 * Open socket to HI931.
 	 *  
-	 *  return socket to HI931
+	 * return socket to HI931
 	 */
 	public Socket openHiSocket(){
 		Socket s = null;//new Socket();
@@ -31,8 +46,7 @@ public class BasicFunctions{
 		}
 		return s;
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Close opened socket to HI931.
 	 *  
 	 * @param s	open socket to HI931 simulator
@@ -44,8 +58,7 @@ public class BasicFunctions{
 			System.out.println(e);
 		}
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Insert data point values to HI931.
 	 *  
 	 * @param s	open socket to HI931 simulator
@@ -65,33 +78,40 @@ public class BasicFunctions{
 			System.out.println(e);
 		}
 	}
-
-		
-	/**
-	 * Find target Pattern on the screen.
+	/****************************************************************************************
+	 * Find target button on the screen.
 	 *  
 	 * @param name	full path and name of application
+	 * @return File  	desired image   
 	 */
 	public File findButtonByName(String name){
 		return(new File("images/buttons/" + name));
 	}
-	
+	/****************************************************************************************
+	 * Find target icon on the screen.
+	 *  
+	 * @param name	full path and name of application
+	 * @return File  	desired image   
+	 */
 	public File findIconByName(String name){
 		return(new File("images/icons/" + name));
 	}
-	
+	/****************************************************************************************
+	 * Find target image on the screen.
+	 *  
+	 * @param name		full path and name of application
+	 * @return File  	desired image     		 	 
+	 */
 	public File findImageByName(String name){
 		return(new File("images/others/" + name));
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Click on region.
 	 *  
 	 * @param region	Region which will be clicked
 	 * @param target    Target which will be clicked
 	 * @param delay     delay when clicking
 	 */
-	
 	public void click(ScreenRegion region, Target target, int delay){
 		Mouse mouse = new DesktopMouse();	
 		mouse.move(region.getCenter());
@@ -101,8 +121,7 @@ public class BasicFunctions{
 		mouse.release();
 		region.wait(target, delay);
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Generate list of targets from list of targets.
 	 *  
 	 * @param buttons	List of patterns to generate list of targets
@@ -118,8 +137,7 @@ public class BasicFunctions{
 		}
 		return targetList;
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Generate list of regions from lsit of patterns.
 	 *  
 	 * @param targetList	List of targets to generate list of regions
@@ -135,8 +153,7 @@ public class BasicFunctions{
 		}
 		return regions;
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Check if pattern occurs in display.
 	 *  
 	 * @param pattern	pattern which will be checked if exists
@@ -152,8 +169,7 @@ public class BasicFunctions{
 		else
 			return false;
 	}
-	
-	/**
+	/****************************************************************************************
 	 * If pattern exists click on it.
 	 *  
 	 * @param pattern	pattern which will be checked if exists
@@ -172,9 +188,7 @@ public class BasicFunctions{
 			return false;
 		}
 	}
-	
-	
-	/**
+	/****************************************************************************************
 	 * Go to main menu.
 	 */
 	public void goToMainMenu() {
@@ -184,8 +198,7 @@ public class BasicFunctions{
 		if (targets.get(0)!= null && regions.get(0) != null)
 			click(regions.get(0),targets.get(0),2);
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Go to DHW menu.
 	 */
 	public void goToDhwMenu() {
@@ -193,8 +206,7 @@ public class BasicFunctions{
 		clickIfExist("Menu.JPG");
 		clickIfExist("DhwMenu.JPG");
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Go to Settings menu.
 	 */
 	public void goToSettingsMenu() {
@@ -202,17 +214,14 @@ public class BasicFunctions{
 		clickIfExist("Menu.JPG");
 		clickIfExist("SettingsButton.JPG");
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Go to Favourites menu.
 	 */
 	public void goToFavouritesMenu() {
 		goToMainMenu();
 		clickIfExist("Left.JPG");
 	}
-	
-	
-	/**
+	/****************************************************************************************
 	 * Run target application (process).
 	 *  
 	 * @param path	path to target application
@@ -236,7 +245,7 @@ public class BasicFunctions{
 		return result;
 	}
 	
-	/**
+	/****************************************************************************************
 	 * Kill target application (process).
 	 *  
 	 * @param app	application (process) to be killed.
@@ -248,8 +257,7 @@ public class BasicFunctions{
 			e.printStackTrace();	
 		}
 	}
-	
-	/**
+	/****************************************************************************************
 	 * Generates list of true to compare after test execution. 
 	 * 
 	 * @parram Length of list
@@ -262,5 +270,22 @@ public class BasicFunctions{
 			trueList[i]= true;
 		};
 		return trueList;
+	}
+	/****************************************************************************************
+	 * @param filePath	path where jpg file will be saved
+	 * @param fileName	name of jpg file
+	 * 	 
+	 * Make a screen shoot in case of test fails 
+	 */
+	public void getScreenShoot(String filePath, String fileName){
+		String fullPath = filePath + fileName;
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		Rectangle rec = new Rectangle(dim);
+		BufferedImage screen = robot.createScreenCapture(rec);
+		try{
+			ImageIO.write(screen, "jpg", new File(fullPath));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 }
