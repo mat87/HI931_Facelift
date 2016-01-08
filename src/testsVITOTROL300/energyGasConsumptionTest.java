@@ -1,20 +1,12 @@
 package testsVITOTROL300;
 
 import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.Logger;
 
 public class energyGasConsumptionTest {
-	String separator = "----------------------------------------------------------------------------------------------------------------------------";
 	
-	BasicFunctions basicFunction = new BasicFunctions();
-	Logger log = new Logger();
+	BasicFunctions basicFunction = new BasicFunctions();;
 
-	
-	public boolean checkGas(){
-							
-		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkGas() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(separator);
-							
+	public boolean checkGas(){					
 		boolean result = false;
 		try {
 			Thread.sleep(2000);
@@ -25,11 +17,7 @@ public class energyGasConsumptionTest {
 	}
 		
 	
-	public boolean checkEnergy(){
-			
-		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkEnergy() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(separator);
-				
+	public boolean checkEnergy(){		
 		boolean result = false;
 		result = basicFunction.checkIfExist("VitotrolMain.JPG");
 		return result;

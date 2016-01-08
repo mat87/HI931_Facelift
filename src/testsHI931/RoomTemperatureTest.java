@@ -1,83 +1,77 @@
 package testsHI931;
 
 import java.util.ArrayList;
-
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
-
 import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.Logger;
 
 public class RoomTemperatureTest {
-	BasicFunctions basicFunction = new BasicFunctions();
-	Logger log = new Logger();
 	
-	public boolean SetRoomTemperatureTest(){
-		System.out.println("++++++++++++++++++++++++++++++++++++++++ SetRoomTemperature() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(log.separator);
-		long startTest = System.currentTimeMillis();
+	BasicFunctions basicFunction = new BasicFunctions();
+	String filePath = "C:\\Workspace\\Viessmann.HI931.Automated.Tests\\images\\capturedScreens\\";
+	String[] buttonsInRoomTemperatureMenu = {"OK.jpg",
+											"Plus.JPG",
+											"Minus.JPG"};
+	
+	ArrayList<Target> targetsInRoomTemperatureMenu = basicFunction.mapTargets(buttonsInRoomTemperatureMenu);
+	
+	//-------------------------------------------------------------------------------------------------------
+	public boolean setRoomTemperatureHighest() throws InterruptedException{
 		boolean result = false;
+		String testName = "setRoomTemperatureHighest.jpg";
 		
-		basicFunction.goToMainMenu();
-		if (basicFunction.clickIfExist("RoomTemperatureMainMenu.JPG")){
-			String[] buttonsInRoomTemperatureMenu = {"OK.jpg",
-					"Plus.JPG",
-					"Minus.JPG"};
-					
-			ArrayList<Target> targetsInRoomTemperatureMenu = basicFunction.mapTargets(buttonsInRoomTemperatureMenu);
+		if(basicFunction.clickIfExist("Plus.JPG")){
 			ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = basicFunction.mapRegions(targetsInRoomTemperatureMenu);
-			
-			if (regionsInRoomTemperatureMenu.get(0) != null || regionsInRoomTemperatureMenu.get(1) != null || regionsInRoomTemperatureMenu.get(2) != null){
-				basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),1);
-				if(basicFunction.checkIfExist("RoomTemperatureMainMenu34.JPG"))
+			if (regionsInRoomTemperatureMenu.get(0) != null && regionsInRoomTemperatureMenu.get(1) != null && regionsInRoomTemperatureMenu.get(2) != null){
+				for(int i = 0; i < 3; i++){
+					basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
+				}
+				basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
+				if(basicFunction.checkIfExist("RoomTemperatureMainMenuHighest.JPG")){
 					result = true;
+				}
 				else{
-					result = false;
-					System.out.println("Test: Fail" + '\n' + log.separator);
+					basicFunction.getScreenShoot(filePath, testName);
 				}
-				basicFunction.clickIfExist("RoomTemperatureMainMenu34.JPG");
-				basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
-				basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),1);
-				if(basicFunction.checkIfExist("RoomTemperatureMainMenu6.JPG")){
-					result = true;
-					System.out.println("Test: Success" + '\n' + log.separator);
-				}else{
-					result = false;
-					System.out.println("Test: Fail" + '\n' + log.separator);
-				}
-			}
-		}else{
-			System.out.println("Impossible to get into room temperature menu.");
-			System.out.println("Test: Fail" + '\n' + log.separator);
+			}	
 		}
-		long endTest = System.currentTimeMillis();
-		log.testExecutedInMs(startTest, endTest);
 		return result;
 	}
-	
-	public boolean checkRoomTemperatureHeader(){
-		System.out.println("++++++++++++++++++++++++++++++++++++++++ checkRoomTemperatureHeader() test ++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(log.separator);
-		long startTest = System.currentTimeMillis();
+	//-------------------------------------------------------------------------------------------------------
+	public boolean setRoomTemperatureLowest() throws InterruptedException{
 		boolean result = false;
+		String testName = "setRoomTemperatureLowest.jpg";
 		
-		basicFunction.goToMainMenu();
-		basicFunction.clickIfExist("RoomTemperatureMainMenu.JPG");
+		if(basicFunction.clickIfExist("Minus.JPG")){
+			ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = basicFunction.mapRegions(targetsInRoomTemperatureMenu);
+			if (regionsInRoomTemperatureMenu.get(0) != null && regionsInRoomTemperatureMenu.get(1) != null && regionsInRoomTemperatureMenu.get(2) != null){
+				for(int i = 0; i < 5; i++){
+					basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
+				}
+				basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
+				
+				if(basicFunction.checkIfExist("RoomTemperatureMainMenuLowest.JPG")){
+					result = true;
+				}
+				else{
+					basicFunction.getScreenShoot(filePath, testName);
+				}
+			}	
+		}
+		return result;
+	}
+	//-------------------------------------------------------------------------------------------------------
+	public boolean checkRoomTemperatureHeader() throws InterruptedException{
+		boolean result = false;
+		String testName = "checkRoomTemperatureHeader";
+		
+		basicFunction.clickIfExist("Minus.JPG");
 		if (basicFunction.checkIfExist("RoomTemperatureHeader.JPG")){
 			result = true;
-			System.out.println("Room temperature header is correct.");			
-			System.out.println("Test: Success" + '\n' + log.separator);
-		}else{
-			System.out.println("Room temperature header is not correct.");
-			System.out.println("Test: Fail" + '\n' + log.separator);
 		}
-		long endTest = System.currentTimeMillis();
-		log.testExecutedInMs(startTest, endTest);
+		else{
+			basicFunction.getScreenShoot(filePath, testName);
+		}
 		return result;
 	}
 }
