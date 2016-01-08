@@ -36,13 +36,14 @@ public class BasicFunctions{
 	/****************************************************************************************
 	 * Open socket to HI931.
 	 *  
-	 * return socket to HI931
+	 * @return socket to HI931
 	 */
 	public Socket openHiSocket(){
 		Socket s = null;//new Socket();
 		try{
 			s = new Socket("localhost", 8899);
 		}catch(IOException e){
+			e.printStackTrace();
 		}
 		return s;
 	}
@@ -55,14 +56,14 @@ public class BasicFunctions{
 		try{
 			s.close();
 		}catch(IOException e){
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	/****************************************************************************************
 	 * Insert data point values to HI931.
 	 *  
 	 * @param s	open socket to HI931 simulator
-	 * @param code value which we want to send, taken from Const file
+	 * @param code value which we want to send, taken from Const.java file
 	 */
 	public void insertValueToHI931(Socket s, String code){
 		DataOutputStream os = null;
@@ -138,7 +139,7 @@ public class BasicFunctions{
 		return targetList;
 	}
 	/****************************************************************************************
-	 * Generate list of regions from lsit of patterns.
+	 * Generate list of regions from list of patterns.
 	 *  
 	 * @param targetList	List of targets to generate list of regions
 	 * 

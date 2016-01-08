@@ -2,6 +2,8 @@ package testsHI931;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.Socket;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -12,11 +14,11 @@ import testsHI931.RoomTemperatureTest;
 
 public class HI931RunAutomatedTests {
 	
-	BasicFunctions basicFunc = new BasicFunctions();
 	BoilerTemperatureTest btt = new BoilerTemperatureTest();
 	RoomTemperatureTest rtt = new RoomTemperatureTest();
 	OperatingProgramTest opt = new OperatingProgramTest();
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
+	PopupTest put = new PopupTest();
 	BasicFunctions func = new BasicFunctions();
 	
 	String path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
@@ -75,6 +77,13 @@ public class HI931RunAutomatedTests {
 		boolean result = btt.checkBoilerTemperature();
 		Assert.assertEquals(result, true);
 	}
+	
+	@Test(priority = 9)
+	public void testFaultPopup(){
+		Socket s = new Socket();
+		boolean result = put.checkPopup(s);
+		Assert.assertEquals(result, true);
+	} 
 	
 	@AfterClass
 	public void endTest() throws IOException{

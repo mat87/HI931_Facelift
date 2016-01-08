@@ -14,7 +14,6 @@ public class PopupTest {
 		if (basicFunction.checkIfExist("FaultPopup.JPG")){
 			basicFunction.clickIfExist("ConfirmButton.JPG");
 			result = true;
-			
 		}
 		return result;
 	}
