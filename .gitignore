@@ -3,3 +3,5 @@ settings.bin
 .classpath
 .settings
 bin/*.class
+images/capturedScreens/
+test-output/
