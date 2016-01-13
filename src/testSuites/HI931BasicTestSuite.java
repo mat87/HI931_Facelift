@@ -1,31 +1,30 @@
-package testsHI931;
+package testSuites;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.Socket;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import automatedTestFramework.BasicFunctions;
+import testsHI931.BoilerTemperatureTest;
 import testsHI931.OperatingProgramTest;
+import testsHI931.OutsideTemperatureTest;
 import testsHI931.RoomTemperatureTest;
 
-public class HI931RunAutomatedTests {
+public class HI931BasicTestSuite {
 	
 	BoilerTemperatureTest btt = new BoilerTemperatureTest();
 	RoomTemperatureTest rtt = new RoomTemperatureTest();
 	OperatingProgramTest opt = new OperatingProgramTest();
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
-	PopupTest put = new PopupTest();
 	BasicFunctions func = new BasicFunctions();
 	
 	String path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
 	String app = "simulator.exe";
 	
 	@BeforeClass
-	public void startUp() throws FileNotFoundException, IOException, InterruptedException{
+	public void setUp() throws FileNotFoundException, IOException, InterruptedException{
 		func.runApplication(path, app);
 		Thread.sleep(3000);
 	}
@@ -78,15 +77,8 @@ public class HI931RunAutomatedTests {
 		Assert.assertEquals(result, true);
 	}
 	
-	@Test(priority = 9)
-	public void testFaultPopup(){
-		Socket s = new Socket();
-		boolean result = put.checkPopup(s);
-		Assert.assertEquals(result, true);
-	} 
-	
 	@AfterClass
-	public void endTest() throws IOException{
+	public void tearDown() throws IOException{
 		func.killApplication(app);
 	}
 }

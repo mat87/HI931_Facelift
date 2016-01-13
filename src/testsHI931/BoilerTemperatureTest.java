@@ -1,6 +1,8 @@
 package testsHI931;
 
 import automatedTestFramework.BasicFunctions;
+import automatedTestFramework.Constants;
+
 import java.net.*;
 
 
@@ -21,7 +23,7 @@ public class BoilerTemperatureTest{
 		boolean result = false;
 		
 		basicFunction.goToMainMenu();
-		basicFunction.insertValueToHI931(s,Const.boilerTemp5);
+		basicFunction.insertValueToHI931(s,Constants.BOILER_TEMP_5);
 		if (basicFunction.checkIfExist("boilerTemperature5.JPG")){
 			result = true;
 		}

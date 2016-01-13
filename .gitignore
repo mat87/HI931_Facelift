@@ -2,6 +2,8 @@ settings.bin
 .project
 .classpath
 .settings
+bin/
 bin/*.class
 images/capturedScreens/
 test-output/
+

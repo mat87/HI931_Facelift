@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="testsHI931.HI931RunAutomatedTests"/>
+<test name="HI931RegressionTest" preserve-order="true">
+	<classes>
+      <class name="testSuites.HI931BasicTestSuite"/>
+      <class name="testSuites.HI931PopupsTestSuite"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+</test> <!-- Test -->
