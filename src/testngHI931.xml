@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<test name="HI931RegressionTest" preserve-order="true">
-	<classes>
-      <class name="testSuites.HI931BasicTestSuite"/>
-      <class name="testSuites.HI931PopupsTestSuite"/>
-    </classes>
-</test> <!-- Test -->
