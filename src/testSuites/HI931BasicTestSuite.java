@@ -1,10 +1,6 @@
 package testSuites;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import automatedTestFramework.BasicFunctions;
 import testsHI931.BoilerTemperatureTest;
@@ -19,15 +15,6 @@ public class HI931BasicTestSuite {
 	OperatingProgramTest opt = new OperatingProgramTest();
 	OutsideTemperatureTest ott = new OutsideTemperatureTest();
 	BasicFunctions func = new BasicFunctions();
-	
-	String path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
-	String app = "simulator.exe";
-	
-	@BeforeClass
-	public void setUp() throws FileNotFoundException, IOException, InterruptedException{
-		func.runApplication(path, app);
-		Thread.sleep(3000);
-	}
 
 	@Test(priority = 1)
 	public void testCheckOperatingProgramHeader() throws InterruptedException{
@@ -75,10 +62,5 @@ public class HI931BasicTestSuite {
 	public void testCheckBoilerTemperature() throws InterruptedException{
 		boolean result = btt.checkBoilerTemperature();
 		Assert.assertEquals(result, true);
-	}
-	
-	@AfterClass
-	public void tearDown() throws IOException{
-		func.killApplication(app);
 	}
 }
