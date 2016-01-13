@@ -6,12 +6,18 @@ import org.testng.annotations.Test;
 import automatedTestFramework.Constants;
 import testsHI931.PopupTest;
 
+import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class HI931PopupsTestSuite {
 	
 	PopupTest put = new PopupTest();
-	Socket s = new Socket();
+	Socket s;
+	
+	public HI931PopupsTestSuite() throws UnknownHostException, IOException{
+		s = new Socket("localhost", 8899);
+	}
 	
 	@Test
 	public void testFaultPopup(){
@@ -37,7 +43,7 @@ public class HI931PopupsTestSuite {
 		Assert.assertEquals(result, true);
 	}
 	
-	@Test
+	//@Test
 	public void testTestOperationPopupTimeout() throws InterruptedException{
 		boolean result = put.checkPopupTimeout(s, Constants.TEST_OPERATION_POPUP, "TestOperationPopup.JPG", "MainMenu1.JPG", 1860000);
 		Assert.assertEquals(result, true);

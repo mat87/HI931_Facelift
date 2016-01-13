@@ -4,6 +4,6 @@ settings.bin
 .settings
 bin/
 bin/*.class
-images/capturedScreens/
+images/capturedScreens/getStackTrace
 test-output/
 
