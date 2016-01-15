@@ -50,7 +50,7 @@ public class BasicFunctions{
 	/****************************************************************************************
 	 * Close opened socket to HI931.
 	 *  
-	 * @param s	open socket to HI931 simulator
+	 * @param s	close socket to HI931 simulator
 	 */
 	public void closeHiSocket(Socket s){
 		try{

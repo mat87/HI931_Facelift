@@ -13,6 +13,7 @@ public class SetUp {
 	String path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
 	String app = "simulator.exe";
 	
+	
 	@BeforeTest
 	public void setUp() throws FileNotFoundException, IOException, InterruptedException{
 		func.runApplication(path, app);
