@@ -14,7 +14,7 @@ public class HI931PopupsTestSuite {
 	BasicFunctions basicFunctions = new BasicFunctions();
 	Socket s;
 	
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void testFaultPopup(){
 		s = basicFunctions.openHiSocket();
 		boolean result = put.checkPopup(s, Constants.FAULT_POPUP, "FaultPopup2.JPG", "ConfirmButton.JPG", "PlusMinusOnHomeScreen.JPG");
@@ -28,7 +28,7 @@ public class HI931PopupsTestSuite {
 		Assert.assertEquals(result, true);
 	}
 	
-	@Test
+	//@Test
 	public void testBurnerFaultPopup(){
 		boolean result = put.checkPopup(s, Constants.BURNER_FAULT_POPUP, "BurnerFaultPopup.JPG", "ConfirmOKButton.JPG", "PlusMinusOnHomeScreen.JPG");
 		Assert.assertEquals(result, true);

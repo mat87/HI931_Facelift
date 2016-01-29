@@ -7,4 +7,6 @@ bin/*.class
 images/capturedScreens/getStackTrace
 images/capturedScreens/*
 test-output/
+.idea
+.metadata
 
