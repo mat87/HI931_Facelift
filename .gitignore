@@ -9,4 +9,4 @@ images/capturedScreens/*
 test-output/
 .idea
 .metadata
-
+*.iml
