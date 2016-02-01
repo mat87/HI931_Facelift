@@ -2,6 +2,7 @@ package testHI931;
 
 import automatedTestFramework.BasicFunctions;
 import automatedTestFramework.Connection;
+import automatedTestFramework.GUIElement;
 import java.net.*;
 
 
@@ -9,6 +10,7 @@ public class PopupTest {
 
     BasicFunctions basicFunction;
     Connection connect;
+    GUIElement guielem;
 
     public PopupTest(){
         basicFunction = new BasicFunctions();
@@ -29,9 +31,9 @@ public class PopupTest {
         boolean result = false;
         basicFunction.goToMainMenu();
         connect.sendMessageToHI(s,popup);
-        if(basicFunction.checkIfExist(checkScreen)){
-            basicFunction.clickIfExist(confirmBtn);
-            if(basicFunction.checkIfExist(screenAfterConfirmed)){
+        if(guielem.checkIfExist(checkScreen)){
+            guielem.clickIfExist(confirmBtn);
+            if(guielem.checkIfExist(screenAfterConfirmed)){
                 result = true;
             }
         }
@@ -51,9 +53,9 @@ public class PopupTest {
         boolean result = false;
         basicFunction.goToMainMenu();
         connect.sendMessageToHI(s, popup);
-        if(basicFunction.checkIfExist(chcheckScreen)){
+        if(guielem.checkIfExist(chcheckScreen)){
             Thread.sleep(timeout);
-            if(basicFunction.checkIfExist(screenAfterTimeout)){
+            if(guielem.checkIfExist(screenAfterTimeout)){
                 result = true;
             }
         }

@@ -2,17 +2,24 @@ package testHI931;
 
 import automatedTestFramework.BasicFunctions;
 import automatedTestFramework.ScreenContainer;
+import automatedTestFramework.GUIElement;
 
 public class FavouritesTest {
-    BasicFunctions basicFunction = new BasicFunctions();
 
+    BasicFunctions basicFunction;
+    GUIElement guielem;
+
+    public FavouritesTest(){
+        guielem = new GUIElement();
+        basicFunction = new BasicFunctions();
+    }
 
     public boolean checkFavouritiesHeader(){
         boolean result = false;
 
         basicFunction.goToMainMenu();
         basicFunction.goToFavouritesMenu();
-        if (basicFunction.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_1.toString())){
+        if (guielem.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_1.toString())){
             result = true;
         }
         return result;
@@ -22,7 +29,7 @@ public class FavouritesTest {
         boolean result = false;
         basicFunction.goToMainMenu();
         basicFunction.goToFavouritesMenu();
-        if (basicFunction.checkIfExist(ScreenContainer.Pages.FAVOURITIES_MENU_1.toString())){
+        if (guielem.checkIfExist(ScreenContainer.Pages.FAVOURITIES_MENU_1.toString())){
             result = true;
         }
         return result;
@@ -32,15 +39,15 @@ public class FavouritesTest {
         boolean result = false;
         basicFunction.goToMainMenu();
         basicFunction.goToFavouritesMenu();
-        basicFunction.clickIfExist(ScreenContainer.Buttons.FAVORITES_SELECT.toString());
-        if(basicFunction.checkIfExist(ScreenContainer.Pages.FAVOURITIES_SELECT_MENU.toString())){
-            basicFunction.clickIfExist(ScreenContainer.Buttons.SELECT.toString());
-            basicFunction.clickIfExist(ScreenContainer.Buttons.SELECT.toString());
-            basicFunction.clickIfExist(ScreenContainer.Buttons.OK.toString());
-            if(basicFunction.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_2.toString()) &&
-                                            basicFunction.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_1.toString())){
-                basicFunction.clickIfExist(ScreenContainer.Buttons.LEFT.toString());
-                if(basicFunction.checkIfExist(ScreenContainer.Pages.FAVOURITIES_MENU_1_1.toString())){
+        guielem.clickIfExist(ScreenContainer.Buttons.FAVORITES_SELECT.toString());
+        if(guielem.checkIfExist(ScreenContainer.Pages.FAVOURITIES_SELECT_MENU.toString())){
+            guielem.clickIfExist(ScreenContainer.Buttons.SELECT.toString());
+            guielem.clickIfExist(ScreenContainer.Buttons.SELECT.toString());
+            guielem.clickIfExist(ScreenContainer.Buttons.OK.toString());
+            if(guielem.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_2.toString()) &&
+                                            guielem.checkIfExist(ScreenContainer.Screens.FAVORITES_HEADER_1.toString())){
+                guielem.clickIfExist(ScreenContainer.Buttons.LEFT.toString());
+                if(guielem.checkIfExist(ScreenContainer.Pages.FAVOURITIES_MENU_1_1.toString())){
                     result = true;
                 }
             }

@@ -3,7 +3,7 @@
 <suite name="Suite1">
     <test name="HI931RegressionTest" preserve-order="true">
         <classes>
-            <class name="testSuites.SetUp"/>
+            <class name="automatedTestFramework.SetUp"/>
             <!--<class name="testSuites.HI931BasicTestSuite"/>-->
             <class name="testSuites.HI931PopupsTestSuite"/>
         </classes>

@@ -1,4 +1,5 @@
 package automatedTestFramework;
+
 import java.io.File;
 import java.io.IOException;
 import automatedTestFramework.Const;
@@ -16,164 +17,56 @@ import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
+import automatedTestFramework.GUIElement;
 
 public class BasicFunctions{
-    public static final double HIGH_MINSCORE = 0.95;
-    public static final double DEFAULT_MINSCORE = 0.9;
-    public static final double LOWER_MINSCORE = 0.85;
 
-    Mouse mouse = new DesktopMouse();
+    Mouse mouse;
     Robot robot;
+    GUIElement guielem;
 
     public BasicFunctions(){
+        mouse = new DesktopMouse();
+        guielem = new GUIElement();
         try{
             robot = new Robot();
         }catch(AWTException e){
             e.printStackTrace();
         }
     }
-    /****************************************************************************************
-     * Find target button on the screen.
-     *
-     * @param name	full path and name of application
-     * @return File  	desired image
-     */
-    public File findButtonByName(String name){
-        return(new File("images/screens/" + name));
-    }
-    /****************************************************************************************
-     * Find target icon on the screen.
-     *
-     * @param name	full path and name of application
-     * @return File  	desired image
-     */
-    public File findIconByName(String name){
-        return(new File("images/screens/" + name));
-    }
-    /****************************************************************************************
-     * Find target image on the screen.
-     *
-     * @param name		full path and name of application
-     * @return File  	desired image
-     */
-    public File findImageByName(String name){
-        return(new File("images/screens/" + name));
-    }
-    /****************************************************************************************
-     * Click on region.
-     *
-     * @param region	Region which will be clicked
-     * @param target    Target which will be clicked
-     * @param delay     delay when clicking
-     */
-    public void click(ScreenRegion region, Target target, int delay){
-        Mouse mouse = new DesktopMouse();
-        mouse.move(region.getCenter());
-        region.wait(target, delay);
-        mouse.press();
-        region.wait(target, delay);
-        mouse.release();
-        region.wait(target, delay);
-    }
-    /****************************************************************************************
-     * Generate list of targets from list of targets.
-     *
-     * @param buttons	List of patterns to generate list of targets
-     *
-     * @return list of targets
-     */
-    public ArrayList<Target> mapTargets(String[] buttons){
-        ArrayList<Target> targetList = new ArrayList<Target>();
-        for(int i=0; i<buttons.length; i++){
-            Target target = new ImageTarget(findButtonByName(buttons[i]));
-            targetList.add(target);
-            targetList.get(i).setMinScore(Const.DEFAULT_MINSCORE);
-        }
-        return targetList;
-    }
-    /****************************************************************************************
-     * Generate list of regions from list of patterns.
-     *
-     * @param targetList	List of targets to generate list of regions
-     *
-     * @return list of regions
-     */
-    public ArrayList<ScreenRegion> mapRegions(ArrayList<Target> targetList){
-        ScreenRegion region = new DesktopScreenRegion();
-        ArrayList<ScreenRegion> regions = new ArrayList<ScreenRegion>();
-        for(int i=0; i<targetList.size(); i++){
-            ScreenRegion r = region.find(targetList.get(i));
-            regions.add(r);
-        }
-        return regions;
-    }
-    /****************************************************************************************
-     * Check if pattern occurs in display.
-     *
-     * @param pattern	pattern which will be checked if exists
-     *
-     * @return true if pattern exists
-     */
-    public boolean checkIfExist(String pattern){
-        String patterns[] = {pattern};
-        ArrayList<Target> targets = mapTargets(patterns);
-        ArrayList<ScreenRegion> regions = mapRegions(targets);
-        if(targets.get(0)!= null && regions.get(0)!= null)
-            return true;
-        else
-            return false;
-    }
-    /****************************************************************************************
-     * If pattern exists click on it.
-     *
-     * @param pattern	pattern which will be checked if exists
-     *
-     * @return true if pattern exist and was clicked
-     */
-    public boolean clickIfExist(String pattern){
-        String patterns[] = {pattern};
-        ArrayList<Target> targets = mapTargets(patterns);
-        ArrayList<ScreenRegion> regions = mapRegions(targets);
-        if(targets.get(0)!= null && regions.get(0)!= null){
-            click(regions.get(0),targets.get(0),0);
-            return true;
-        }else{
-            System.out.println(pattern + " " + "not found.");
-            return false;
-        }
-    }
+
     /****************************************************************************************
      * Go to main menu.
      */
     public void goToMainMenu() {
         String[] buttons = {"Home.JPG"};
-        ArrayList<Target> targets = mapTargets(buttons);
-        ArrayList<ScreenRegion> regions = mapRegions(targets);
+        ArrayList<Target> targets = guielem.mapTargets(buttons);
+        ArrayList<ScreenRegion> regions = guielem.mapRegions(targets);
         if (targets.get(0)!= null && regions.get(0) != null)
-            click(regions.get(0),targets.get(0),2);
+            guielem.click(regions.get(0),targets.get(0),2);
     }
     /****************************************************************************************
      * Go to DHW menu.
      */
     public void goToDhwMenu() {
         goToMainMenu();
-        clickIfExist("Menu.JPG");
-        clickIfExist("DhwMenu.JPG");
+        guielem.clickIfExist("Menu.JPG");
+        guielem.clickIfExist("DhwMenu.JPG");
     }
     /****************************************************************************************
      * Go to Settings menu.
      */
     public void goToSettingsMenu() {
         goToMainMenu();
-        clickIfExist("Menu.JPG");
-        clickIfExist("SettingsButton.JPG");
+        guielem.clickIfExist("Menu.JPG");
+        guielem.clickIfExist("SettingsButton.JPG");
     }
     /****************************************************************************************
      * Go to Favourites menu.
      */
     public void goToFavouritesMenu() {
         goToMainMenu();
-        clickIfExist("Left.JPG");
+        guielem.clickIfExist("Left.JPG");
     }
     /****************************************************************************************
      * Run target application (process).

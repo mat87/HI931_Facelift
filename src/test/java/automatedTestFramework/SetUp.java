@@ -1,12 +1,9 @@
-package testSuites;
+package automatedTestFramework;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.Socket;
-
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import automatedTestFramework.BasicFunctions;
 
 public class SetUp {
 

@@ -1,17 +1,19 @@
 package testHI931;
 
 import java.util.ArrayList;
-
 import automatedTestFramework.ScreenContainer;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import automatedTestFramework.BasicFunctions;
+import automatedTestFramework.GUIElement;
 
 public class RoomTemperatureTest {
 
     BasicFunctions basicFunction;
+    GUIElement guielem;
 
     public RoomTemperatureTest(){
+        guielem = new GUIElement();
         basicFunction = new BasicFunctions();
     }
 
@@ -21,21 +23,21 @@ public class RoomTemperatureTest {
                                             ScreenContainer.Buttons.PLUS.toString(),
                                             ScreenContainer.Buttons.MINUS.toString()};
 
-    ArrayList<Target> targetsInRoomTemperatureMenu = basicFunction.mapTargets(buttonsInRoomTemperatureMenu);
+    ArrayList<Target> targetsInRoomTemperatureMenu = guielem.mapTargets(buttonsInRoomTemperatureMenu);
 
     //-------------------------------------------------------------------------------------------------------
     public boolean setRoomTemperatureHighest() throws InterruptedException{
         boolean result = false;
         String testName = "setRoomTemperatureHighest.jpg";
 
-        if(basicFunction.clickIfExist(ScreenContainer.Buttons.PLUS.toString())){
-            ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = basicFunction.mapRegions(targetsInRoomTemperatureMenu);
+        if(guielem.clickIfExist(ScreenContainer.Buttons.PLUS.toString())){
+            ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = guielem.mapRegions(targetsInRoomTemperatureMenu);
             if (regionsInRoomTemperatureMenu.get(0) != null && regionsInRoomTemperatureMenu.get(1) != null && regionsInRoomTemperatureMenu.get(2) != null){
                 for(int i = 0; i < 3; i++){
-                    basicFunction.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
+                    guielem.click(regionsInRoomTemperatureMenu.get(1), targetsInRoomTemperatureMenu.get(1),0);
                 }
-                basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
-                if(basicFunction.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_MAIN_MENU_HIGHEST.toString())){
+                guielem.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
+                if(guielem.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_MAIN_MENU_HIGHEST.toString())){
                     result = true;
                 }
                 else{
@@ -50,15 +52,15 @@ public class RoomTemperatureTest {
         boolean result = false;
         String testName = "SetRoomTemperatureLowest.jpg";
 
-        if(basicFunction.clickIfExist(ScreenContainer.Buttons.MINUS.toString())){
-            ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = basicFunction.mapRegions(targetsInRoomTemperatureMenu);
+        if(guielem.clickIfExist(ScreenContainer.Buttons.MINUS.toString())){
+            ArrayList<ScreenRegion> regionsInRoomTemperatureMenu = guielem.mapRegions(targetsInRoomTemperatureMenu);
             if (regionsInRoomTemperatureMenu.get(0) != null && regionsInRoomTemperatureMenu.get(1) != null && regionsInRoomTemperatureMenu.get(2) != null){
                 for(int i = 0; i < 5; i++){
-                    basicFunction.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
+                    guielem.click(regionsInRoomTemperatureMenu.get(2), targetsInRoomTemperatureMenu.get(2),0);
                 }
-                basicFunction.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
+                guielem.click(regionsInRoomTemperatureMenu.get(0), targetsInRoomTemperatureMenu.get(0),0);
 
-                if(basicFunction.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_MAIN_MENU_LOWEST.toString())){
+                if(guielem.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_MAIN_MENU_LOWEST.toString())){
                     result = true;
                 }
                 else{
@@ -73,8 +75,8 @@ public class RoomTemperatureTest {
         boolean result = false;
         String testName = "CheckRoomTemperatureHeader";
 
-        basicFunction.clickIfExist(ScreenContainer.Buttons.MINUS.toString());
-        if (basicFunction.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_HEADER.toString())){
+        guielem.clickIfExist(ScreenContainer.Buttons.MINUS.toString());
+        if (guielem.checkIfExist(ScreenContainer.Screens.ROOM_TEMPERATURE_HEADER.toString())){
             result = true;
         }
         else{

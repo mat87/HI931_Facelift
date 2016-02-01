@@ -2,9 +2,17 @@ package testHI931;
 
 import automatedTestFramework.BasicFunctions;
 import automatedTestFramework.ScreenContainer;
+import automatedTestFramework.GUIElement;
 
 public class StandbyTest {
-    BasicFunctions basicFunction = new BasicFunctions();
+
+    BasicFunctions basicFunction;
+    GUIElement guielem;
+
+    public StandbyTest(){
+        basicFunction = new BasicFunctions();
+        guielem = new GUIElement();
+    }
 
     public boolean check2minutesStandby(){
         boolean result = false;
@@ -14,9 +22,9 @@ public class StandbyTest {
         }catch (Exception e) {
             e.printStackTrace();
         }
-        if (basicFunction.checkIfExist(ScreenContainer.Pages.STANDBY_SCREEN_1.toString())){
+        if (guielem.checkIfExist(ScreenContainer.Pages.STANDBY_SCREEN_1.toString())){
             result = true;
-            basicFunction.clickIfExist(ScreenContainer.Pages.STANDBY_SCREEN_1.toString());
+            guielem.clickIfExist(ScreenContainer.Pages.STANDBY_SCREEN_1.toString());
         }
         return result;
     }

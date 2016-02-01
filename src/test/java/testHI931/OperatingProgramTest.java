@@ -5,16 +5,22 @@ import automatedTestFramework.ScreenContainer;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import automatedTestFramework.BasicFunctions;
+import automatedTestFramework.GUIElement;
 
 
 public class OperatingProgramTest {
 
     String filePath = "C:\\Workspace\\Viessmann.HI931.Automated.Tests\\images\\capturedScreens\\";
+
+    GUIElement guielem;
     BasicFunctions basicFunction;
 
     public OperatingProgramTest(){
+
         basicFunction = new BasicFunctions();
+        guielem = new GUIElement();
     }
+
     /*
      * Check if Operating Program screen contains proper Header as in GUI spec.
      */
@@ -29,20 +35,20 @@ public class OperatingProgramTest {
                                     ScreenContainer.Screens.OPERATING_PROGRAM_DHW.toString(),
                                     ScreenContainer.Screens.OPERATING_PROGRAM_HEATING_DHW.toString()};
 
-        ArrayList<Target> targetsInMainMenu = basicFunction.mapTargets(buttonsInMainMenu);
-        ArrayList<ScreenRegion> regionsInMainMenu = basicFunction.mapRegions(targetsInMainMenu);
+        ArrayList<Target> targetsInMainMenu = guielem.mapTargets(buttonsInMainMenu);
+        ArrayList<ScreenRegion> regionsInMainMenu = guielem.mapRegions(targetsInMainMenu);
 
         if (regionsInMainMenu.get(0) != null || regionsInMainMenu.get(1) != null || regionsInMainMenu.get(2) != null){
             for (int i=0; i<regionsInMainMenu.size(); i++) {
                 if (regionsInMainMenu.get(i) != null){
-                    basicFunction.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
+                    guielem.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
                     break;
                 }else{
                     basicFunction.getScreenShoot(filePath, testName);}
             }
         }else{
             basicFunction.getScreenShoot(filePath, testName);}
-        if (basicFunction.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_HEADER.toString())){
+        if (guielem.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_HEADER.toString())){
             result = true;}
         else{
             basicFunction.getScreenShoot(filePath, testName);}
@@ -60,18 +66,18 @@ public class OperatingProgramTest {
                                     ScreenContainer.Screens.OPERATING_PROGRAM_DHW.toString(),
                                     ScreenContainer.Screens.OPERATING_PROGRAM_HEATING_DHW.toString()};
 
-        ArrayList<Target> targetsInMainMenu = basicFunction.mapTargets(buttonsInMainMenu);
-        ArrayList<ScreenRegion> regionsInMainMenu = basicFunction.mapRegions(targetsInMainMenu);
+        ArrayList<Target> targetsInMainMenu = guielem.mapTargets(buttonsInMainMenu);
+        ArrayList<ScreenRegion> regionsInMainMenu = guielem.mapRegions(targetsInMainMenu);
 
         if (regionsInMainMenu.get(0) != null || regionsInMainMenu.get(1) != null || regionsInMainMenu.get(2) != null){
             for (int i=0; i<regionsInMainMenu.size(); i++) {
                 if (regionsInMainMenu.get(i) != null){
-                    basicFunction.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
+                    guielem.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
                     break;
                 }
             }
         }
-        if (basicFunction.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_FOOTER.toString())){
+        if (guielem.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_FOOTER.toString())){
             result = true;
         }
         basicFunction.goToMainMenu();
@@ -95,24 +101,24 @@ public class OperatingProgramTest {
                                     ScreenContainer.Screens.OPERATING_PROGRAM_DHW.toString(),
                                     ScreenContainer.Screens.OPERATING_PROGRAM_HEATING_DHW.toString()};
 
-        ArrayList<Target> targetsInMainMenu = basicFunction.mapTargets(buttonsInMainMenu);
-        ArrayList<ScreenRegion> regionsInMainMenu = basicFunction.mapRegions(targetsInMainMenu);
+        ArrayList<Target> targetsInMainMenu = guielem.mapTargets(buttonsInMainMenu);
+        ArrayList<ScreenRegion> regionsInMainMenu = guielem.mapRegions(targetsInMainMenu);
 
         if (regionsInMainMenu.get(0) != null || regionsInMainMenu.get(1) != null || regionsInMainMenu.get(2) != null){
             for (int i=0; i<regionsInMainMenu.size(); i++) {
                 if (regionsInMainMenu.get(i) != null){
-                    basicFunction.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
+                    guielem.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
                     break;
                 }
             }
-            ArrayList<Target> targetsInOperatingProgram = basicFunction.mapTargets(buttonsInOperatingModeMenu);
-            ArrayList<ScreenRegion> regionsInOperatingProgram = basicFunction.mapRegions(targetsInOperatingProgram);
+            ArrayList<Target> targetsInOperatingProgram = guielem.mapTargets(buttonsInOperatingModeMenu);
+            ArrayList<ScreenRegion> regionsInOperatingProgram = guielem.mapRegions(targetsInOperatingProgram);
             //Test
             for(int i=0; i<3; i++){
-                basicFunction.click(regionsInOperatingProgram.get(i) ,targetsInOperatingProgram.get(i),0);
-                basicFunction.click(regionsInOperatingProgram.get(3) ,targetsInOperatingProgram.get(3),0);
-                if (basicFunction.checkIfExist(buttonsInMainMenu[i])){
-                    basicFunction.click(regionsInMainMenu.get(2), targetsInMainMenu.get(2),0);
+                guielem.click(regionsInOperatingProgram.get(i) ,targetsInOperatingProgram.get(i),0);
+                guielem.click(regionsInOperatingProgram.get(3) ,targetsInOperatingProgram.get(3),0);
+                if (guielem.checkIfExist(buttonsInMainMenu[i])){
+                    guielem.click(regionsInMainMenu.get(2), targetsInMainMenu.get(2),0);
                     result = true;
                 }
             }
