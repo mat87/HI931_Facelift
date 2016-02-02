@@ -11,3 +11,4 @@ test-output/
 .metadata
 *.iml
 target/
+GUI_Automated_Test.iml
