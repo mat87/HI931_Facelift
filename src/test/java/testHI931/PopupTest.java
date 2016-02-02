@@ -15,7 +15,6 @@ public class PopupTest {
     public PopupTest(){
         basicFunction = new BasicFunctions();
         connect = new Connection();
-        guielem = new GUIElement();
     }
 
     /****************************************************************************************
