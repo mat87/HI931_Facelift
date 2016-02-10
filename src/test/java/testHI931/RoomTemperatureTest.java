@@ -1,20 +1,20 @@
 package testHI931;
 
 import java.util.ArrayList;
-import automatedTestFramework.ScreenContainer;
+import testFramework.ScreenContainer;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.GUIElement;
 
 public class RoomTemperatureTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     GUIElement guielem;
 
     public RoomTemperatureTest(){
         guielem = new GUIElement();
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
     }
 
     String filePath = "C:\\Workspace\\Viessmann.HI931.Automated.Tests\\images\\capturedScreens\\";
@@ -41,7 +41,7 @@ public class RoomTemperatureTest {
                     result = true;
                 }
                 else{
-                    basicFunction.getScreenShoot(filePath, testName);
+                    driver.getScreenShoot(filePath, testName);
                 }
             }
         }
@@ -64,7 +64,7 @@ public class RoomTemperatureTest {
                     result = true;
                 }
                 else{
-                    basicFunction.getScreenShoot(filePath, testName);
+                    driver.getScreenShoot(filePath, testName);
                 }
             }
         }
@@ -80,7 +80,7 @@ public class RoomTemperatureTest {
             result = true;
         }
         else{
-            basicFunction.getScreenShoot(filePath, testName);
+            driver.getScreenShoot(filePath, testName);
         }
         return result;
     }

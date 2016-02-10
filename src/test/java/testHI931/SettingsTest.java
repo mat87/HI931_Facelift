@@ -1,24 +1,24 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.ScreenContainer;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.ScreenContainer;
+import testFramework.GUIElement;
 
 public class SettingsTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     GUIElement guielem;
 
     public SettingsTest(){
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
         guielem = new GUIElement();
     }
 
     public boolean checkSettingsHeader(){
         boolean result = false;
 
-        basicFunction.goToMainMenu();
-        basicFunction.goToSettingsMenu();
+        driver.goToMainMenu();
+        driver.goToSettingsMenu();
         if (guielem.checkIfExist(ScreenContainer.Screens.SETTING_HEADER.toString())){
             result = true;
         }
@@ -27,8 +27,8 @@ public class SettingsTest {
 
     public boolean checkSettingsMenuItems(){
         boolean result = false;
-        basicFunction.goToMainMenu();
-        basicFunction.goToSettingsMenu();
+        driver.goToMainMenu();
+        driver.goToSettingsMenu();
         if (guielem.checkIfExist(ScreenContainer.Pages.SETTINGS_MENU_1.toString())){
             guielem.clickIfExist(ScreenContainer.Buttons.RIGHT.toString());
             if(guielem.checkIfExist(ScreenContainer.Pages.SETTINGS_MENU_2.toString())){

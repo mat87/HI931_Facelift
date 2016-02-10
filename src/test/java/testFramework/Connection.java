@@ -1,4 +1,4 @@
-package automatedTestFramework;
+package testFramework;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -45,13 +45,13 @@ public class Connection {
      * Insert data point values to HI931.
      *
      * @param socket	open socket to HI931 simulator
-     * @param code value which we want to send, taken from Const.java file
+     * @param msg value which we want to send, taken from Constants.java file
      */
-    public void sendMessageToHI(Socket socket, String code){
+    public void sendMessageToHI(Socket socket, String msg){
         DataOutputStream os;
         try{
             os = new DataOutputStream(socket.getOutputStream());
-            os.writeBytes(code);
+            os.writeBytes(msg);
             try{
                 Thread.sleep(2000);
             }catch (Exception e) {

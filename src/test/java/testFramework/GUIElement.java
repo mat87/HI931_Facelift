@@ -1,9 +1,6 @@
-package automatedTestFramework;
+package testFramework;
 
-import org.sikuli.api.DesktopScreenRegion;
-import org.sikuli.api.ImageTarget;
-import org.sikuli.api.ScreenRegion;
-import org.sikuli.api.Target;
+import org.sikuli.api.*;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
 import java.io.File;
@@ -11,32 +8,21 @@ import java.util.ArrayList;
 
 public class GUIElement {
 
-    /****************************************************************************************
-     * Find target button on the screen.
-     *
-     * @param name	full path and name of application
-     * @return File  	desired image
-     */
-    public File findButtonByName(String name){
-        return(new File("images/screens/" + name));
+    public GUIElement(){
+
     }
     /****************************************************************************************
-     * Find target icon on the screen.
+     * Find target object on the screen.
      *
-     * @param name	full path and name of application
+     * @param name	    name of the object from images path
      * @return File  	desired image
      */
-    public File findIconByName(String name){
-        return(new File("images/screens/" + name));
-    }
-    /****************************************************************************************
-     * Find target image on the screen.
-     *
-     * @param name		full path and name of application
-     * @return File  	desired image
-     */
-    public File findImageByName(String name){
-        return(new File("images/screens/" + name));
+    public File findByName(String name){
+        if(name == null) {
+            throw new IllegalArgumentException("Cannot find elements when name text is null.");
+        }else {
+            return(new File("images/screens/" + name));
+        }
     }
     /****************************************************************************************
      * Click on region.
@@ -46,27 +32,31 @@ public class GUIElement {
      * @param delay     delay when clicking
      */
     public void click(ScreenRegion region, Target target, int delay){
-        Mouse mouse = new DesktopMouse();
-        mouse.move(region.getCenter());
-        region.wait(target, delay);
-        mouse.press();
-        region.wait(target, delay);
-        mouse.release();
-        region.wait(target, delay);
+        if(region == null && target == null){
+            throw new IllegalArgumentException("Cannot click on elements when region and target are null.");
+        }else {
+            Mouse mouse = new DesktopMouse();
+            mouse.move(region.getCenter());
+            region.wait(target, delay);
+            mouse.press();
+            region.wait(target, delay);
+            mouse.release();
+            region.wait(target, delay);
+        }
     }
     /****************************************************************************************
      * Generate list of targets from list of targets.
      *
-     * @param buttons	List of patterns to generate list of targets
+     * @param image	List of patterns to generate list of targets
      *
      * @return list of targets
      */
-    public ArrayList<Target> mapTargets(String[] buttons){
+    public ArrayList<Target> mapTargets(String[] image){
         ArrayList<Target> targetList = new ArrayList<Target>();
-        for(int i=0; i<buttons.length; i++){
-            Target target = new ImageTarget(findButtonByName(buttons[i]));
+        for(int i=0; i<image.length; i++){
+            Target target = new ImageTarget(findByName(image[i]));
             targetList.add(target);
-            targetList.get(i).setMinScore(Const.DEFAULT_MINSCORE);
+            targetList.get(i).setMinScore(Constants.DEFAULT_MINSCORE);
         }
         return targetList;
     }

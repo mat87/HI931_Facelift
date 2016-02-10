@@ -1,22 +1,22 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.ScreenContainer;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.ScreenContainer;
+import testFramework.GUIElement;
 
 public class CleanScreenTest{
 
     GUIElement guielem;
-    BasicFunctions basicFunction;
+    Driver driver;
 
     public CleanScreenTest(){
         guielem = new GUIElement();
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
     }
 
     public boolean checkClearScreen(){
         boolean result = false;
-        basicFunction.goToSettingsMenu();
+        driver.goToSettingsMenu();
         guielem.clickIfExist(ScreenContainer.Buttons.RIGHT.toString());
         guielem.clickIfExist(ScreenContainer.Buttons.CLEAN_SCREEN.toString());
         guielem.clickIfExist(ScreenContainer.Screens.CLEAN_SCRREN.toString());

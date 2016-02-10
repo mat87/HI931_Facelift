@@ -1,22 +1,22 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.ScreenContainer;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.ScreenContainer;
+import testFramework.GUIElement;
 
 public class StandbyTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     GUIElement guielem;
 
     public StandbyTest(){
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
         guielem = new GUIElement();
     }
 
     public boolean check2minutesStandby(){
         boolean result = false;
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         try{
             Thread.sleep(250000);
         }catch (Exception e) {

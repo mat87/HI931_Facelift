@@ -1,26 +1,24 @@
 package testHI931;
 
 import java.util.ArrayList;
-import automatedTestFramework.ScreenContainer;
+
+import testFramework.Constants;
+import testFramework.ScreenContainer;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.GUIElement;
 
 
 public class OperatingProgramTest {
 
-    String filePath = "C:\\Workspace\\Viessmann.HI931.Automated.Tests\\images\\capturedScreens\\";
-
     GUIElement guielem;
-    BasicFunctions basicFunction;
+    Driver driver;
 
     public OperatingProgramTest(){
-
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
         guielem = new GUIElement();
     }
-
     /*
      * Check if Operating Program screen contains proper Header as in GUI spec.
      */
@@ -29,7 +27,7 @@ public class OperatingProgramTest {
         boolean result = false;
         String testName = Thread.currentThread().getStackTrace()[0].getMethodName();
 
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
 
         String[] buttonsInMainMenu = {ScreenContainer.Screens.OPERATING_PROGRAM_STAND_BY.toString(),
                                     ScreenContainer.Screens.OPERATING_PROGRAM_DHW.toString(),
@@ -44,14 +42,14 @@ public class OperatingProgramTest {
                     guielem.click(regionsInMainMenu.get(i), targetsInMainMenu.get(i),0);
                     break;
                 }else{
-                    basicFunction.getScreenShoot(filePath, testName);}
+                    driver.getScreenShoot(Constants.FILE_PATH, testName);}
             }
         }else{
-            basicFunction.getScreenShoot(filePath, testName);}
+            driver.getScreenShoot(Constants.FILE_PATH, testName);}
         if (guielem.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_HEADER.toString())){
             result = true;}
         else{
-            basicFunction.getScreenShoot(filePath, testName);}
+            driver.getScreenShoot(Constants.FILE_PATH, testName);}
         return result;
     }
 
@@ -60,7 +58,7 @@ public class OperatingProgramTest {
 	 */
     public boolean checkOperatingProgramFooter() throws InterruptedException{
         boolean result = false;
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         //Array of buttons in operating program
         String[] buttonsInMainMenu = {ScreenContainer.Screens.OPERATING_PROGRAM_STAND_BY.toString(),
                                     ScreenContainer.Screens.OPERATING_PROGRAM_DHW.toString(),
@@ -80,7 +78,7 @@ public class OperatingProgramTest {
         if (guielem.checkIfExist(ScreenContainer.Screens.HC1_OPERATING_PROGRAM_FOOTER.toString())){
             result = true;
         }
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         return result;
     }
 
@@ -123,7 +121,7 @@ public class OperatingProgramTest {
                 }
             }
         }
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         return result;
     }
 }

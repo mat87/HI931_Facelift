@@ -1,8 +1,7 @@
-package automatedTestFramework;
+package testFramework;
 
 import java.io.File;
 import java.io.IOException;
-import automatedTestFramework.Const;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import java.awt.Dimension;
@@ -11,21 +10,18 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.AWTException;
 import java.awt.image.BufferedImage;
-import org.sikuli.api.DesktopScreenRegion;
-import org.sikuli.api.ImageTarget;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
-import automatedTestFramework.GUIElement;
 
-public class BasicFunctions{
+public class Driver {
 
     Mouse mouse;
     Robot robot;
     GUIElement guielem;
 
-    public BasicFunctions(){
+    public Driver(){
         mouse = new DesktopMouse();
         guielem = new GUIElement();
         try{
@@ -34,12 +30,11 @@ public class BasicFunctions{
             e.printStackTrace();
         }
     }
-
     /****************************************************************************************
      * Go to main menu.
      */
     public void goToMainMenu() {
-        String[] buttons = {"Home.JPG"};
+        String[] buttons = {ScreenContainer.Buttons.HOME.toString()};
         ArrayList<Target> targets = guielem.mapTargets(buttons);
         ArrayList<ScreenRegion> regions = guielem.mapRegions(targets);
         if (targets.get(0)!= null && regions.get(0) != null)
@@ -50,23 +45,30 @@ public class BasicFunctions{
      */
     public void goToDhwMenu() {
         goToMainMenu();
-        guielem.clickIfExist("Menu.JPG");
-        guielem.clickIfExist("DhwMenu.JPG");
+        guielem.clickIfExist(ScreenContainer.Buttons.MENU.toString());
+        guielem.clickIfExist(ScreenContainer.Buttons.DHW_MENU.toString());
     }
     /****************************************************************************************
      * Go to Settings menu.
      */
     public void goToSettingsMenu() {
         goToMainMenu();
-        guielem.clickIfExist("Menu.JPG");
-        guielem.clickIfExist("SettingsButton.JPG");
+        guielem.clickIfExist(ScreenContainer.Buttons.MENU.toString());
+        guielem.clickIfExist(ScreenContainer.Buttons.SETTINGS_MENU.toString());
+    }
+    /****************************************************************************************
+     * Go to Energy cockpit.
+     */
+    public void goToEnergyCockpit(){
+        goToMainMenu();
+        guielem.clickIfExist(ScreenContainer.Buttons.ENERGY_COCKPIT.toString());
     }
     /****************************************************************************************
      * Go to Favourites menu.
      */
     public void goToFavouritesMenu() {
         goToMainMenu();
-        guielem.clickIfExist("Left.JPG");
+        guielem.clickIfExist(ScreenContainer.Buttons.LEFT.toString());
     }
     /****************************************************************************************
      * Run target application (process).
@@ -91,7 +93,6 @@ public class BasicFunctions{
         }
         return result;
     }
-
     /****************************************************************************************
      * Kill target application (process).
      *

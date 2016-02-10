@@ -1,4 +1,4 @@
-package automatedTestFramework;
+package testFramework;
 
 public class ScreenContainer {
 
@@ -14,7 +14,12 @@ public class ScreenContainer {
         FAVORITES_SELECT ("FavouritiesSelectButton.JPG"),
         PLUS ("Plus.JPG"),
         MINUS ("Minus.JPG"),
-        SELECT ("Select.JPG");
+        SELECT ("Select.JPG"),
+        HOME ("Home.JPG"),
+        ENERGY_COCKPIT ("EnergyCockpitButton.JPG"),
+        MENU ("Menu.jpg"),
+        DHW_MENU ("DhwMenu.JPG"),
+        SETTINGS_MENU ("SettingsButton.JPG");
 
         private String button;
 

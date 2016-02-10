@@ -1,22 +1,22 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.ScreenContainer;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.ScreenContainer;
+import testFramework.GUIElement;
 
 public class OutsideTemperatureTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     GUIElement guielem;
 
     public OutsideTemperatureTest(){
         guielem = new GUIElement();
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
     }
 
     public boolean checkOutsideTemperature() throws InterruptedException{
         boolean result = false;
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         if (guielem.checkIfExist(ScreenContainer.Screens.OUTSIDE_TEMPERATURE_12.toString())){
             result = true;
         }

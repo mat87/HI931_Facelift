@@ -1,20 +1,21 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.Connection;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.Connection;
+import testFramework.GUIElement;
 import java.net.*;
 
 
 public class PopupTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     Connection connect;
     GUIElement guielem;
 
     public PopupTest(){
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
         connect = new Connection();
+        guielem = new GUIElement();
     }
 
     /****************************************************************************************
@@ -29,7 +30,7 @@ public class PopupTest {
      */
     public boolean checkPopup(Socket s, String popup, String checkScreen, String confirmBtn, String screenAfterConfirmed){
         boolean result = false;
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         connect.sendMessageToHI(s,popup);
         if(guielem.checkIfExist(checkScreen)){
             guielem.clickIfExist(confirmBtn);
@@ -51,7 +52,7 @@ public class PopupTest {
      * */
     public boolean checkPopupTimeout(Socket s, String popup, String chcheckScreen, String screenAfterTimeout, long timeout) throws InterruptedException{
         boolean result = false;
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
         connect.sendMessageToHI(s, popup);
         if(guielem.checkIfExist(chcheckScreen)){
             Thread.sleep(timeout);

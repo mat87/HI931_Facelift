@@ -1,15 +1,19 @@
-package automatedTestFramework;
+package testFramework;
 
 /**
  * Class to store constant variables inside HI931 project.
  */
-public final class Const {
+public final class Constants {
 
     public static final double HIGH_MINSCORE = 0.95;
     public static final double DEFAULT_MINSCORE = 0.9;
     public static final double LOWER_MINSCORE = 0.85;
 
     public static final String BOILER_TEMP_5 = "0101081002d601";
+
+    public static final String FORMAT = ".jpg";
+
+    public static final String FILE_PATH = "C:\\Workspace\\Viessmann.HI931.Automated.Tests\\images\\capturedScreens\\";
     /*
      * POP-UPs
      * */
@@ -35,7 +39,7 @@ public final class Const {
     * CYLINDERS
     * */
     public final class Cylinder {
-        public static final String MONOVALENT = "010167050101";
+        public static final String MONOVALENT = "010189000100";
         public static final String DUAL = "010167050103";
         public static final String CUVC = "010167050104";
     }

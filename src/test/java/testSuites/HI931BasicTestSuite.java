@@ -2,7 +2,7 @@ package testSuites;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import automatedTestFramework.BasicFunctions;
+import testFramework.Driver;
 import testHI931.BoilerTemperatureTest;
 import testHI931.OperatingProgramTest;
 import testHI931.OutsideTemperatureTest;
@@ -14,7 +14,7 @@ public class HI931BasicTestSuite {
     RoomTemperatureTest rtt = new RoomTemperatureTest();
     OperatingProgramTest opt = new OperatingProgramTest();
     OutsideTemperatureTest ott = new OutsideTemperatureTest();
-    BasicFunctions func = new BasicFunctions();
+    Driver func = new Driver();
 
     @Test(priority = 1)
     public void testCheckOperatingProgramHeader() throws InterruptedException{

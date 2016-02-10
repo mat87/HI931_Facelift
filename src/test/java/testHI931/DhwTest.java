@@ -1,23 +1,23 @@
 package testHI931;
 
-import automatedTestFramework.BasicFunctions;
-import automatedTestFramework.ScreenContainer;
-import automatedTestFramework.GUIElement;
+import testFramework.Driver;
+import testFramework.ScreenContainer;
+import testFramework.GUIElement;
 
 public class DhwTest {
 
-    BasicFunctions basicFunction;
+    Driver driver;
     GUIElement guielem;
 
     public DhwTest(){
         guielem = new GUIElement();
-        basicFunction = new BasicFunctions();
+        driver = new Driver();
     }
 
     public boolean SetDhwTemperatureTest(){
         boolean result = true;
 
-        basicFunction.goToMainMenu();
+        driver.goToMainMenu();
 
         //to be developed
 
@@ -27,8 +27,8 @@ public class DhwTest {
     public boolean checkDhwMenu(){
         boolean result = false;
 
-        basicFunction.goToMainMenu();
-        basicFunction.goToDhwMenu();
+        driver.goToMainMenu();
+        driver.goToDhwMenu();
         if (guielem.checkIfExist(ScreenContainer.Screens.DHW_MENU_HEADER.toString()) &&
                                 guielem.checkIfExist(ScreenContainer.Pages.DHW_MENU_ITEMS.toString())){
             result = true;

@@ -1,4 +1,4 @@
-package automatedTestFramework;
+package testFramework;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,13 +7,13 @@ import org.testng.annotations.BeforeTest;
 
 public class SetUp {
 
-    BasicFunctions func;
+    Driver func;
 
     String path = "C:\\Workspace\\viessmann-hi-931\\build\\bin\\";
     String app = "simulator.exe";
 
     public SetUp() {
-        func = new BasicFunctions();
+        func = new Driver();
     }
 
     @BeforeTest (alwaysRun = true)
