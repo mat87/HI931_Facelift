@@ -49,12 +49,20 @@ public class Driver {
         guielem.clickIfExist(ScreenContainer.Buttons.DHW_MENU.toString());
     }
     /****************************************************************************************
-     * Go to Settings menu.
+     * Go to Settings menu page 1.
      */
-    public void goToSettingsMenu() {
+    public void goToSettingsMenu1() {
         goToMainMenu();
         guielem.clickIfExist(ScreenContainer.Buttons.MENU.toString());
         guielem.clickIfExist(ScreenContainer.Buttons.SETTINGS_MENU.toString());
+    }
+    /****************************************************************************************
+     * Go to Settings menu page 1.
+     */
+    public void goToSettingsMenu2(){
+        guielem.clickIfExist(ScreenContainer.Buttons.MENU.toString());
+        guielem.clickIfExist(ScreenContainer.Buttons.SETTINGS_MENU.toString());
+        guielem.clickIfExist(ScreenContainer.Buttons.RIGHT.toString());
     }
     /****************************************************************************************
      * Go to Energy cockpit.

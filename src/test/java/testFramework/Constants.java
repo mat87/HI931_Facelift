@@ -1,5 +1,9 @@
 package testFramework;
 
+import org.sikuli.api.Screen;
+import org.sikuli.api.ScreenLocation;
+import org.sikuli.api.ScreenRegion;
+
 /**
  * Class to store constant variables inside HI931 project.
  */
@@ -43,4 +47,5 @@ public final class Constants {
         public static final String DUAL = "010167050103";
         public static final String CUVC = "010167050104";
     }
+
 }

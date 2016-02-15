@@ -19,7 +19,11 @@ public class ScreenContainer {
         ENERGY_COCKPIT ("EnergyCockpitButton.JPG"),
         MENU ("Menu.jpg"),
         DHW_MENU ("DhwMenu.JPG"),
-        SETTINGS_MENU ("SettingsButton.JPG");
+        SELECT_DEFAULT_HOME_PAGE ("SelectDefaultHomePage.JPG"),
+        SETTINGS_MENU ("SettingsButton.JPG"),
+        ENERGY_COCKPIT_CHECKBOX ("EnergyCockpitCheckBox.JPG"),
+        FAVOURITES_CHECKBOX ("FavouritesCheckBox.JPG"),
+        HEATING_CHECKBOX ("HeatingCheckBox.JPG");
 
         private String button;
 
@@ -102,6 +106,12 @@ public class ScreenContainer {
         DHW_MENU_HEADER ("DhwMenuHeader.JPG"),
         CLEAN_SCRREN ("CleanScreen.JPG"),
         BOILER_TEMPERATURE_47 ("BoilerTemperature47.JPG"),
+        HEATING_HOME_PAGE ("HeatingHomePage.JPG"),
+        ENERGY_COCKPIT_HOME_PAGE ("EnergyCockpitHomePage.JPG"),
+        FAVOURITES_HOME_PAGE ("FavouritesHomePage.JPG"),
+        HEATING_HOME_PAGE_HEADER ("HeatingPageHeader.JPG"),
+        ENERGY_COCKPIT_HOME_PAGE_HEADER ("EnergyCockpitPageHeader.JPG"),
+        FAVOURITES_HOME_PAGE_HEADER ("FavouritesPageHeader.JPG"),
         BOILER_TEMPEARTURE_5 ("BoilerTemperature5.JPG");
 
         private String screen;

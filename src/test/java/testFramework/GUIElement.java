@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 public class GUIElement {
 
-    public GUIElement(){
+    Mouse mouse;
 
+    public GUIElement(){
+        mouse = new DesktopMouse();
     }
     /****************************************************************************************
      * Find target object on the screen.
@@ -35,8 +37,35 @@ public class GUIElement {
         if(region == null && target == null){
             throw new IllegalArgumentException("Cannot click on elements when region and target are null.");
         }else {
-            Mouse mouse = new DesktopMouse();
             mouse.move(region.getCenter());
+            region.wait(target, delay);
+            mouse.press();
+            region.wait(target, delay);
+            mouse.release();
+            region.wait(target, delay);
+        }
+    }
+    /****************************************************************************************
+     * Click on target region.
+     *
+     * @param region	Region which will be clicked
+     * @param target    Target which will be clicked
+     * @param loc       Location where mouse pointer should be moved
+     * @param delay     delay when clicking
+     */
+    public void clickOnTargetLoacation(ScreenRegion region, Target target, int loc, int delay){
+        //Array of target region locations. Select the proper one where mouse pointer should be moved and the cliked.
+        ScreenLocation[] locations = {
+            region.getLowerLeftCorner(),    //0
+            region.getUpperRightCorner(),   //1
+            region.getCenter(),             //2
+            region.getLowerRightCorner(),   //3
+            region.getUpperLeftCorner()     //4
+        };
+        if(region == null && target == null){
+            throw new IllegalArgumentException("Cannot click on elements when region and target are null.");
+        }else {
+            mouse.move(locations[loc]);
             region.wait(target, delay);
             mouse.press();
             region.wait(target, delay);
@@ -111,4 +140,18 @@ public class GUIElement {
             return false;
         }
     }
+
+    public boolean clickIfExist(String pattern, int loc){
+        String patterns[] = {pattern};
+        ArrayList<Target> targets = mapTargets(patterns);
+        ArrayList<ScreenRegion> regions = mapRegions(targets);
+        if(targets.get(0)!= null && regions.get(0)!= null){
+            clickOnTargetLoacation(regions.get(0),targets.get(0), loc, 0);
+            return true;
+        }else{
+            System.out.println(pattern + " " + "not found.");
+            return false;
+        }
+    }
+
 }

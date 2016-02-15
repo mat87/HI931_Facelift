@@ -18,7 +18,7 @@ public class SettingsTest {
         boolean result = false;
 
         driver.goToMainMenu();
-        driver.goToSettingsMenu();
+        driver.goToSettingsMenu1();
         if (guielem.checkIfExist(ScreenContainer.Screens.SETTING_HEADER.toString())){
             result = true;
         }
@@ -28,7 +28,7 @@ public class SettingsTest {
     public boolean checkSettingsMenuItems(){
         boolean result = false;
         driver.goToMainMenu();
-        driver.goToSettingsMenu();
+        driver.goToSettingsMenu1();
         if (guielem.checkIfExist(ScreenContainer.Pages.SETTINGS_MENU_1.toString())){
             guielem.clickIfExist(ScreenContainer.Buttons.RIGHT.toString());
             if(guielem.checkIfExist(ScreenContainer.Pages.SETTINGS_MENU_2.toString())){

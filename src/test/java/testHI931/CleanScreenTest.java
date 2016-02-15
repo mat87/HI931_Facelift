@@ -16,7 +16,7 @@ public class CleanScreenTest{
 
     public boolean checkClearScreen(){
         boolean result = false;
-        driver.goToSettingsMenu();
+        driver.goToSettingsMenu1();
         guielem.clickIfExist(ScreenContainer.Buttons.RIGHT.toString());
         guielem.clickIfExist(ScreenContainer.Buttons.CLEAN_SCREEN.toString());
         guielem.clickIfExist(ScreenContainer.Screens.CLEAN_SCRREN.toString());
