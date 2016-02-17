@@ -1,6 +1,7 @@
 package testSuites;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testFramework.Constants;
@@ -16,6 +17,11 @@ public class HI931DefaultHomePageSuite {
     public HI931DefaultHomePageSuite(){
         defHomePage = new DefaultHomePageTest();
         driver = new Driver();
+    }
+
+    @BeforeClass
+    public void startTest(){
+        driver.goToSettingsMenu2();
     }
 
     @DataProvider(name = "homePageProvider")

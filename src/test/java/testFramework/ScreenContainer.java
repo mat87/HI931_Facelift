@@ -112,6 +112,11 @@ public class ScreenContainer {
         HEATING_HOME_PAGE_HEADER ("HeatingPageHeader.JPG"),
         ENERGY_COCKPIT_HOME_PAGE_HEADER ("EnergyCockpitPageHeader.JPG"),
         FAVOURITES_HOME_PAGE_HEADER ("FavouritesPageHeader.JPG"),
+        VD333F_ENERGY_COCKPIT ("EC_VD33F.JPG"),
+        VD343_ENERGY_COCKPIT ("EC_VD343.JPG"),
+        VITOSOLAR300F_ENERGY_COCKPIT ("EC_VITOSOLAR300F.JPG"),
+        VD300_DUAL_ENERGY_COCKPIT ("EC_VD300_Dual.JPG"),
+        VD300_CUVC_ENERGY_COCKPIT ("EC_VD300_CUVC.JPG"),
         BOILER_TEMPEARTURE_5 ("BoilerTemperature5.JPG");
 
         private String screen;

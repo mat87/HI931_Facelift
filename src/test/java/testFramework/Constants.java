@@ -1,9 +1,5 @@
 package testFramework;
 
-import org.sikuli.api.Screen;
-import org.sikuli.api.ScreenLocation;
-import org.sikuli.api.ScreenRegion;
-
 /**
  * Class to store constant variables inside HI931 project.
  */

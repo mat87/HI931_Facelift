@@ -68,8 +68,9 @@ public class Driver {
      * Go to Energy cockpit.
      */
     public void goToEnergyCockpit(){
-        goToMainMenu();
+        guielem.clickIfExist(ScreenContainer.Buttons.MENU.toString());
         guielem.clickIfExist(ScreenContainer.Buttons.ENERGY_COCKPIT.toString());
+
     }
     /****************************************************************************************
      * Go to Favourites menu.
