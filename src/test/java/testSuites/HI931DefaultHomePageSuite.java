@@ -19,23 +19,20 @@ public class HI931DefaultHomePageSuite {
         driver = new Driver();
     }
 
-    @BeforeClass
-    public void startTest(){
-        driver.goToSettingsMenu2();
-    }
 
     @DataProvider(name = "homePageProvider")
     public Object[][] getData(){
         return new Object[][]{
-                {ScreenContainer.Screens.FAVOURITES_HOME_PAGE.toString(), ScreenContainer.Screens.FAVOURITES_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.FAVOURITES_CHECKBOX.toString()},
-                {ScreenContainer.Screens.HEATING_HOME_PAGE.toString(), ScreenContainer.Screens.HEATING_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.HEATING_CHECKBOX.toString()},
-                {ScreenContainer.Screens.ENERGY_COCKPIT_HOME_PAGE.toString(), ScreenContainer.Screens.ENERGY_COCKPIT_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.ENERGY_COCKPIT_CHECKBOX.toString()}
+                {ScreenContainer.Screens.FAVOURITES_HOME_PAGE.toString(), ScreenContainer.Screens.FAVOURITES_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.FAVOURITES_CHECKBOX.toString(), ScreenContainer.Buttons.FAVOURITES_CHECKBOX_2.toString()},
+                {ScreenContainer.Screens.ENERGY_COCKPIT_HOME_PAGE.toString(), ScreenContainer.Screens.ENERGY_COCKPIT_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.ENERGY_COCKPIT_CHECKBOX.toString(), ScreenContainer.Buttons.ENERGY_COCKPIT_CHECKBOX_2.toString()},
+                {ScreenContainer.Screens.HEATING_HOME_PAGE.toString(), ScreenContainer.Screens.HEATING_HOME_PAGE_HEADER.toString(), ScreenContainer.Buttons.HEATING_CHECKBOX.toString(), ScreenContainer.Buttons.HEATING_CHECKBOX_2.toString()}
         };
     }
 
     @Test(dataProvider = "homePageProvider")
-    public void checkDefaultHomePage(String page, String expectedPage, String button){
-        boolean result = defHomePage.selectDefaultHomePage(page, expectedPage, button);
+    public void checkDefaultHomePage(String page, String expectedPage, String button, String button2){
+        driver.goToSettingsMenu2();
+        boolean result = defHomePage.selectDefaultHomePage(page, expectedPage, button, button2);
         if(!result){
             driver.getScreenShoot(Constants.FILE_PATH, page);
         }

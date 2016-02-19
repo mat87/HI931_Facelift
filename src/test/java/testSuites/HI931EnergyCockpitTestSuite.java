@@ -10,7 +10,6 @@ import testHI931.EnergyCockpitTest;
 import java.net.Socket;
 
 
-
 public class HI931EnergyCockpitTestSuite {
 
     Connection connect;
@@ -19,9 +18,9 @@ public class HI931EnergyCockpitTestSuite {
     Driver driver;
 
     public HI931EnergyCockpitTestSuite(){
-        ect = new EnergyCockpitTest();
         connect = new Connection("localhost", 8899);
         driver = new Driver();
+        ect = new EnergyCockpitTest(connect);
     }
 
     @DataProvider(name = "energyCockpitProvider")
@@ -36,7 +35,7 @@ public class HI931EnergyCockpitTestSuite {
     }
 
     @BeforeClass
-    public void startTest(){
+    public void setUpTest(){
         socket = connect.openSocket();
         driver.goToEnergyCockpit();
     }
@@ -51,7 +50,7 @@ public class HI931EnergyCockpitTestSuite {
     }
 
     @AfterClass
-    public void endConnect(){
+    public void endTest(){
         connect.closeSocket(socket);
     }
 

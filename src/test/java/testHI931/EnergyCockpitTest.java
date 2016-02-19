@@ -10,8 +10,8 @@ public class EnergyCockpitTest {
     Connection connect;
     GUIElement guielem;
 
-    public EnergyCockpitTest(){
-        connect = new Connection();
+    public EnergyCockpitTest(Connection connect){
+        this.connect = connect;
         guielem = new GUIElement();
     }
 

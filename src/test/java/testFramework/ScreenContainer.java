@@ -22,8 +22,11 @@ public class ScreenContainer {
         SELECT_DEFAULT_HOME_PAGE ("SelectDefaultHomePage.JPG"),
         SETTINGS_MENU ("SettingsButton.JPG"),
         ENERGY_COCKPIT_CHECKBOX ("EnergyCockpitCheckBox.JPG"),
+        ENERGY_COCKPIT_CHECKBOX_2 ("EnergyCockpitCheckBox2.JPG"),
         FAVOURITES_CHECKBOX ("FavouritesCheckBox.JPG"),
-        HEATING_CHECKBOX ("HeatingCheckBox.JPG");
+        FAVOURITES_CHECKBOX_2 ("FavouritesCheckBox2.JPG"),
+        HEATING_CHECKBOX ("HeatingCheckBox.JPG"),
+        HEATING_CHECKBOX_2 ("HeatingCheckBox2.JPG");
 
         private String button;
 

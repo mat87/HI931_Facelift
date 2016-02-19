@@ -18,9 +18,9 @@ public class HI931PopupsTestSuite {
     Socket socket;
 
     public HI931PopupsTestSuite(){
-        popt = new PopupTest();
         driver = new Driver();
         connect = new Connection("localhost", 8899);
+        popt = new PopupTest(connect);
     }
 
     @DataProvider(name = "popupsProvider")
