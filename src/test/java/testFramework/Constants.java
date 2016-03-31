@@ -44,4 +44,13 @@ public final class Constants {
         public static final String CUVC = "010167050104";
     }
 
+    /*
+    * VENTILATION
+    * */
+    public final class Ventilation{
+        public static final String VENTIL_ON = "0101CAA80101";
+        public static final String CHECK_FILTER = "0101CAC40101";
+
+    }
+
 }

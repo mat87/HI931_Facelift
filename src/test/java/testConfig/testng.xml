@@ -4,9 +4,9 @@
     <test name="HI931RegressionTest" preserve-order="true">
         <classes>
             <class name="testFramework.SetUp"/>
-            <class name="testSuites.HI931DefaultHomePageSuite"/>
+            <!-- <class name="testSuites.HI931DefaultHomePageSuite"/> -->
             <class name="testSuites.HI931PopupsTestSuite"/>
-            <class name="testSuites.HI931EnergyCockpitTestSuite"/>
+            <!-- <class name="testSuites.HI931EnergyCockpitTestSuite"/> -->
         </classes>
     </test>
 </suite>

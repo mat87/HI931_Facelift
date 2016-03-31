@@ -1,6 +1,5 @@
 package testFramework;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -17,10 +16,11 @@ public class SetUp {
     }
 
     @BeforeTest (alwaysRun = true)
-    public void setUp() throws FileNotFoundException, IOException, InterruptedException{
+    public void setUp() throws IOException, InterruptedException{
         func.runApplication(path, app);
         Thread.sleep(3000);
     }
+
 
     @AfterTest (alwaysRun = true)
     public void tearDown() throws IOException{
